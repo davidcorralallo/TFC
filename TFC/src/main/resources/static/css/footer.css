@@ -1,0 +1,70 @@
+@charset "ISO-8859-1";
+
+footer {
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: #28242c;
+    color: white;
+    background-image: url("/img/footer/imgFooter.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+footer hr {
+    background-color: rgb(255, 0, 100);
+    border-color: rgb(255, 0, 100);
+    height: 2px;
+    opacity: 100%;
+    width: 40%;
+}
+
+footer h3 { font-size: 2vw;}
+
+footer span {
+    font-size: 1.5vw;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: 450;
+    display: block;
+    transition: all 0.7s ease;
+    padding-top: 2vw;
+}
+
+footer span:hover{
+    margin-left: 20px;
+    color:rgb(255, 0, 100);
+    cursor: pointer;
+}
+
+.rrss span{
+    height: 3vw;
+    width: 3vw;
+    background-color: rgba(255,255,255,0.2);
+    text-align: center;
+    border-radius: 50%;
+    margin-top: 1.5vw;
+    transition: all 0.5s ease;
+    padding-top: 0.7vw;
+}
+
+.rrss span:hover {
+    padding-left: 0px;
+    color:rgb(255, 0, 100);
+    background-color: white;
+    cursor: pointer;
+}
+
+.row {
+    --bs-gutter-x: 0rem
+}
+
+.imgFooter {
+    width: 100%;
+    height: 33.8vw;
+    opacity: 70%;
+    margin: 0px;
+    position: absolute;
+}

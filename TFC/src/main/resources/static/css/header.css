@@ -1,0 +1,25 @@
+header {
+    background-color: #28242c;
+    color: white;
+}
+
+.nav {
+    display: flex;
+    padding-top: 2.5%;
+    align-items: center;
+}
+
+.nav li{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    padding-bottom: 2%;
+    width: 20%;
+    font-size: 1.25vw;
+}
+
+.logo {
+    height:4vw;}
+
+.nav li:hover{ color:rgb(255, 0, 100); cursor: pointer;}

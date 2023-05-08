@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Home</title>
+</head>
+<body>
+ 	<!-- |header| 				   	 			  |header|	  -->
+    <header th:insert="fragments/header"></header>
+    <!-- ====================================================== -->
+    
+	<main>
+    <section class="row">
+        <div class="row inicio">
+            <div class="col-6 info text-center">
+                <h1>Coruña Automoción</h1>
+                <p>Tu concesionario de referencia en la provincia de
+                    La Coruña para la compra y venta de coches.</p>
+                <p>Ofrecemos una gran variedad de servicios como
+                    tasación del automóvil, reprogramaciones,
+                    puesta a punto...</p>
+                <p>Pongase en contacto con nosotros para mas información.</p>
+            </div>
+            <div class="col-6"></div>
+        </div>
+
+        <section>
+            <div class="marcas">
+                <h2 class="text-center">Gran variedad de marcas disponibles</h2>
+                <div class="marcasimg"></div>
+            </div>
+            
+        </section>
+
+        <section>
+            <hr class="separacion"></hr>
+            <div>
+                <div class="tasacion row">
+                    <div class="col-6 text-center">
+                        <h2>¿Cuánto vale tu coche?</h2>
+                        <p>Tasación rápida y sin compromiso</p>
+                        <button class="boton0">Tasación gratuita</button>
+                    </div>
+                    <div class="timg col-6">
+                        
+                    </div>
+                </div>
+                <hr class="separacion"></hr>
+            </div>
+            <div>
+                <div class="tasacion row">
+                    <div class="timg2 col-6">
+                        
+                    </div>
+                    <div class="col-6 text-center">
+                        <h2>Reprogramaciones</h2>
+                        <p>Reprogramación de centralita a medida</p>
+                        <button class="boton0">Contactar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+	</main>
+	
+	<!-- |footer| 				   	 			  |footer|	  -->
+    <header th:insert="fragments/footer"></header>
+    <!-- ====================================================== -->
+    
+</body>
+</html>
