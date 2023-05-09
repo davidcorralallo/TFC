@@ -16,4 +16,8 @@ public class HomeController {
     	return "/singup";
     }
 	
+	@GetMapping("/log")
+    public String mostrarLogIn() {
+    	return "/logIn";
+    }
 }
