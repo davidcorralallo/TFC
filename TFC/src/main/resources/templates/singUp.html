@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webjars/font-awesome/5.15.4/css/all.min.css" />
+	<link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/singup.css">
+    <link rel="stylesheet" href="/css/Header.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Sing Up</title>
+</head>
+<body>
+	<!-- |header| 				   	 			  |header|	  -->
+    <header th:insert="fragments/header"></header>
+    <!-- ====================================================== -->
+    <main>
+        <form class="col">
+            <h2>Registrar</h2>
+            <div class="row campo">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+            </div>
+            <div class="row campo">
+                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos">
+            </div>
+            <div class="row campo">
+                <input type="email" id="email" name="email" placeholder="Email">
+            </div>
+            <div class="row campo">
+                <input type="text" id="user" name="user" placeholder="Username">
+            </div>
+            <div class="row campo">
+                <input type="password" id="password" name="password" placeholder="Password">
+            </div>
+            <div class="row divbtn d-flex justify-content-center">
+                <button class="btn2" type="submit" id="submit" name="submit">Registrar</button>
+            </div>
+        </form>
+    </main>
+    <!-- |footer| 				   	 			  |footer|	  -->
+    <footer class="row d-flex" th:insert="fragments/footer"></footer>
+    <!-- ====================================================== -->
+</body>
+</html>

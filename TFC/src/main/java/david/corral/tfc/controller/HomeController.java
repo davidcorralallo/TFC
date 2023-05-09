@@ -5,19 +5,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-
 	
-	@GetMapping("/h")
-    public String mostrarHeader() {
-    	return "/fragments/header";
-    }
-	@GetMapping("/f")
-    public String mostrarFooter() {
-    	return "/fragments/footer";
-    }
 	@GetMapping("/")
     public String mostrarHome() {
-    	return "/home";
+    	return "/Home";
+    }
+	
+	@GetMapping("/singup")
+    public String mostrarSingUp() {
+    	return "/singup";
     }
 	
 }
