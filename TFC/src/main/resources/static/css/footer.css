@@ -23,7 +23,7 @@ footer hr {
 
 footer h3 { font-size: 2vw;}
 
-footer span {
+.info span {
     font-size: 1.5vw;
     text-transform: capitalize;
     text-decoration: none;
@@ -33,7 +33,7 @@ footer span {
     padding-top: 2vw;
 }
 
-footer span:hover{
+.info span:hover{
     margin-left: 20px;
     color:rgb(255, 0, 100);
     cursor: pointer;
@@ -61,10 +61,6 @@ footer span:hover{
     --bs-gutter-x: 0rem
 }
 
-.imgFooter {
-    width: 100%;
-    height: 33.8vw;
-    opacity: 70%;
-    margin: 0px;
-    position: absolute;
+.d-flex{
+	justify-content: start !important;
 }

@@ -19,4 +19,5 @@ public class HomeController {
     public String mostrarHome() {
     	return "/home";
     }
+	
 }

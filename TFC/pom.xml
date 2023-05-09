@@ -59,6 +59,11 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+ 			<groupId>org.webjars</groupId>
+  			<artifactId>font-awesome</artifactId>
+  			<version>5.15.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>
