@@ -1,4 +1,4 @@
-/*package david.corral.tfc.entity;
+package david.corral.tfc.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +10,9 @@ import javax.persistence.Table;
 @Table (name="usuarioperfil")
 public class UsuarioPerfil {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
 	private Integer id_usuario;
 	private Integer id_perfil;
 	public Integer getId_usuario() {
@@ -29,4 +32,4 @@ public class UsuarioPerfil {
 		return "UsuarioPerfil [id_usuario=" + id_usuario + ", id_perfil=" + id_perfil + "]";
 	}
 	
-	*/
+}
