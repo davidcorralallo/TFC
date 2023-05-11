@@ -20,4 +20,9 @@ public class HomeController {
     public String mostrarLogIn() {
     	return "/logIn";
     }
+	
+	@GetMapping("/admin")
+    public String mostrarAdmin() {
+    	return "/admin";
+    }
 }

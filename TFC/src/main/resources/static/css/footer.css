@@ -58,9 +58,16 @@ footer h3 { font-size: 2vw;}
 }
 
 .row {
-    --bs-gutter-x: 0rem
+    --bs-gutter-x: 0rem;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
 }
 
 .d-flex{
 	justify-content: start !important;
+}
+
+.col-3 {
+	padding-right: 0px !important;
+    padding-left: 0px !important;
 }

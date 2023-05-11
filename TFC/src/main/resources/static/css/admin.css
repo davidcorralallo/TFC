@@ -1,0 +1,86 @@
+@charset "ISO-8859-1";
+main {
+    background-color: #28242c;
+}
+
+section {
+    width: 100%;
+    padding-bottom: 10vw;
+}
+
+.col-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding-top: 7.5vw;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.col-10 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.boton-lista {
+    background: rgb(255, 0, 100);
+    border-radius: 999px;
+    box-shadow: rgb(255, 0, 100) 0 10px 20px -10px;
+    color: #FFFFFF;
+    font-size: 1.5vw;
+    font-weight: 700;
+    line-height: 2vw;
+    opacity: 1;
+    padding: 1vw 2vw;
+    border: 0;
+    margin-bottom: 7.5%;
+    text-decoration: none;
+    margin-top: 2vw;
+}
+
+.boton-lista a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.boton-lista a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+h1{
+    padding-top: 5.5vw;
+    color: rgb(255, 0, 100);
+    font-size: 3vw;
+}
+
+table {
+    background-color: white;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 1vw;
+    margin-top: 2.5vw;
+}
+
+tbody {
+    font-weight: 475;
+}
+
+thead tr th{
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+}
+
+td{
+    padding-top:1vw;
+    padding-bottom:1vw;
+}
+
+tbody tr:hover {
+    background-color: #28242c;
+    color: white;
+}
