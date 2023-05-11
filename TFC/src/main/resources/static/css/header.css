@@ -12,14 +12,32 @@ header {
 .nav li{
     display: flex;
     justify-content: center;
-    text-decoration: none;
-    color: white;
     padding-bottom: 2%;
     width: 20%;
-    font-size: 1.25vw;
 }
 
 .logo {
     height:4vw;}
 
-.nav li:hover{ color:rgb(255, 0, 100); cursor: pointer;}
+.nav a{
+	color: white;
+	font-size: 1.25vw;
+	text-decoration: none;
+}
+
+
+.nav a:hover{ 
+	color:rgb(255, 0, 100);
+	cursor: pointer;
+	text-decoration: none;
+	}
+	
+.dropdown-item {color:black !important;}
+	
+.dropdown-item:hover{
+	color:rgb(255, 0, 100) !important;
+	background-color: #28242c !important;
+}	
+	
+	
+	

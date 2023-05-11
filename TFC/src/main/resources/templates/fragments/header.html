@@ -1,13 +1,25 @@
-
-       	<nav>
-       	    <ul class="nav">
-       	        <li>Home</li>
-       	        <li>Tienda</li>
-       	        <li><img src="/img/header/dibujo.png" class="logo"></li>
-       	        <li>Contacto</li>
-       	        <li>Log in/<br>
-       	            Registrar
-       	        </li>
-       	    </ul>
-       	</nav>
-
+<nav>
+	<ul class="nav">
+    	<li><a th:href="@{/}">Home</a></li>
+    	<li class="nav-item dropdown">
+    		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   				Tienda
+    		</a>
+    		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    			<a class="dropdown-item" href="#">Coches</a>
+    			<a class="dropdown-item" href="#">Productos</a>
+    		</div>
+		</li>
+    	<li><a th:href="@{/}"><img src="/img/header/dibujo.png" class="logo"></a></li>
+    	<li><a th:href="@{/}">Contacto</a></li>
+       	<li class="nav-item dropdown">
+    		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   				Entrar
+    		</a>
+    		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    			<a class="dropdown-item" href="#">Log In</a>
+    			<a class="dropdown-item" href="#">Registar</a>
+    		</div>
+		</li>
+	</ul>
+</nav>
