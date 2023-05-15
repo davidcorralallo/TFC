@@ -27,7 +27,7 @@ header {
 
 
 .nav a:hover{ 
-	color:rgb(255, 0, 100);
+	color:white;
 	cursor: pointer;
 	text-decoration: none;
 	}
@@ -35,9 +35,12 @@ header {
 .dropdown-item {color:black !important;}
 	
 .dropdown-item:hover{
-	color:rgb(255, 0, 100) !important;
+	color:white !important;
 	background-color: #28242c !important;
-}	
+}
+	
+	
+	
 	
 	
 	

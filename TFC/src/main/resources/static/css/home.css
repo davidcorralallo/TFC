@@ -117,3 +117,98 @@ section{
 }
 
 /*Hasta aqui servicios */
+
+/* Productos destacados */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+body{
+	background: #F5F1EE;
+	font-family: 'Roboto', sans-serif;
+}
+.card{
+	width: 15vw;
+	border-radius: 10px;
+}
+
+.card-img-top{
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+span.text-muted{
+	font-size: 12px;
+}
+small.text-muted{
+	font-size: 0.5vw;
+}
+h6{
+	color: black !important;
+}
+h5.mb-0{
+	font-size: 1vw;
+	color: black !important;
+}
+small.ghj{
+	font-size: 0.75vw;
+	color:black;
+}
+.mid{
+	background: #ECEDF1;
+}
+h6.ml-1{
+	font-size: 1vw;
+	color: black !important;
+}
+small.key{
+	text-decoration: underline;
+	font-size: 9px;
+	cursor: pointer;
+}
+
+small.justify-content-center{
+	font-size: 9px;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+@media screen and (max-width:600px){
+    .col-sm-4{
+        margin-bottom: 50px;
+    }
+}
+
+.imgCar {
+    height: 10vw;
+}
+
+.destacados {
+	width: 100%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+.mt-5 {
+	width:100%;
+}
+
+
+.iconoInfo{
+    height: 1.5vw;
+    width:1.5vw;
+}
+
+.text-muted {
+	color: black !important;
+}
+
+h2{
+	width: 100%;
+}
+
+.card-body hr {
+	background-color:rgb(255, 0, 100) !important;
+	color:rgb(255, 0, 100) !important;
+}
+
+
+
+
+
