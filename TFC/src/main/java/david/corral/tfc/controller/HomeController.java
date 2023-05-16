@@ -25,4 +25,14 @@ public class HomeController {
     public String mostrarAdmin() {
     	return "/admin";
     }
+	
+	@GetMapping("/coches")
+    public String mostrarCoches() {
+    	return "/coches";
+    }
+	
+	@GetMapping("/productos")
+    public String mostrarProductos() {
+    	return "/productos";
+    }
 }
