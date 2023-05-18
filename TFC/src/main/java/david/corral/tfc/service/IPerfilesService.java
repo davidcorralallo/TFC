@@ -1,5 +1,5 @@
 package david.corral.tfc.service;
 
-public interface ClientesService {
+public interface IPerfilesService {
 
 }

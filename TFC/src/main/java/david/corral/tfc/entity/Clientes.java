@@ -1,11 +1,12 @@
 package david.corral.tfc.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 
 @Entity
 @Table (name="clientes")
@@ -22,11 +23,31 @@ public class Clientes {
 	private String email;
 	private String usuario;
 	private String contraseña;
+	private Integer estatus;
+	private Date fechaRegistro;
 	
 	
+	public void agregar(Perfiles perfil) {
+		
+	}
 	
 	
+	public Date getFechaRegistro() {
+		return this.fechaRegistro;
+	}
+
+	public void setFechaRegistro(Date fechaRegistro) {
+		this.fechaRegistro = fechaRegistro;
+	}
 	
+	public Integer getEstatus() {
+		return estatus;
+	}
+
+	public void setEstatus(Integer estatus) {
+		this.estatus = estatus;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -95,7 +116,9 @@ public class Clientes {
 	public String toString() {
 		return "Clientes [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono
 				+ ", direccion=" + direccion + ", email=" + email + ", usuario=" + usuario + ", contraseña="
-				+ contraseña + "]";
+				+ contraseña + ", estatus=" + estatus + ", fechaRegistro=" + fechaRegistro + "]";
 	}
+
+	
 	
 }

@@ -1,5 +1,5 @@
 package david.corral.tfc.service;
 
-public interface PerfilesService {
+public interface IVentasService {
 
 }
