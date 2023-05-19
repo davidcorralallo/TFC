@@ -31,6 +31,8 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/bootstrap/**",
                                             "/images/**",
                                             "/tinimce/**",
+                                            "/css/**",
+                                            "/img/**",
                                             "/logo/**").permitAll().antMatchers("/",
                                             									"/personajes/api/**",
                                                                                 "/login",

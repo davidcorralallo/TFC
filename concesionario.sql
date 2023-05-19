@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 08-05-2023 a las 13:57:27
+-- Tiempo de generación: 19-05-2023 a las 11:27:52
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -37,6 +37,8 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `usuario` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `contraseña` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `estatus` tinyint NOT NULL,
+  `fechaRegistro` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -59,6 +61,21 @@ CREATE TABLE IF NOT EXISTS `coches` (
   `precio` decimal(10,2) NOT NULL,
   `img` varchar(155) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cohesconcesionario`
+--
+
+DROP TABLE IF EXISTS `cohesconcesionario`;
+CREATE TABLE IF NOT EXISTS `cohesconcesionario` (
+  `IdCoche` int NOT NULL,
+  `idConcesioario` int NOT NULL,
+  PRIMARY KEY (`IdCoche`,`idConcesioario`),
+  KEY `IdCoche` (`IdCoche`,`idConcesioario`),
+  KEY `relacion_a_concesionarios` (`idConcesioario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -146,10 +163,16 @@ CREATE TABLE IF NOT EXISTS `ventas` (
 --
 
 --
+-- Filtros para la tabla `cohesconcesionario`
+--
+ALTER TABLE `cohesconcesionario`
+  ADD CONSTRAINT `relacion_a_coches` FOREIGN KEY (`IdCoche`) REFERENCES `coches` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `relacion_a_concesionarios` FOREIGN KEY (`idConcesioario`) REFERENCES `concesionario` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
 -- Filtros para la tabla `concesionario`
 --
 ALTER TABLE `concesionario`
-  ADD CONSTRAINT `relacion_a_coches` FOREIGN KEY (`id_coche`) REFERENCES `coches` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `relacion_a_empleados` FOREIGN KEY (`id_empleado`) REFERENCES `empleados` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --

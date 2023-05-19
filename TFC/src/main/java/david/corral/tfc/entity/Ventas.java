@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,20 +16,27 @@ public class Ventas {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private Integer idCliente;
+	@ManyToOne
+    @JoinColumn(name = "idCliente")
+    private Clientes cliente;
 	private Integer IdCoche;
 	private Date fechaVenta;
+	
+	
+	
+	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getIdCliente() {
-		return idCliente;
+	
+	public Clientes getCliente() {
+		return cliente;
 	}
-	public void setIdCliente(Integer idCliente) {
-		this.idCliente = idCliente;
+	public void setCliente(Clientes cliente) {
+		this.cliente = cliente;
 	}
 	public Integer getIdCoche() {
 		return IdCoche;
@@ -43,9 +52,10 @@ public class Ventas {
 	}
 	@Override
 	public String toString() {
-		return "Ventas [id=" + id + ", idCliente=" + idCliente + ", IdCoche=" + IdCoche + ", fechaVenta=" + fechaVenta
+		return "Ventas [id=" + id + ", cliente=" + cliente + ", IdCoche=" + IdCoche + ", fechaVenta=" + fechaVenta
 				+ "]";
 	}
+	
 	
 	
 }

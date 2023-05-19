@@ -1,9 +1,7 @@
-/*package david.corral.tfc.entity;
+package david.corral.tfc.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import javax.persistence.Table;
 
 @Entity
@@ -12,6 +10,8 @@ public class UsuarioPerfil {
 
 	private Integer id_usuario;
 	private Integer id_perfil;
+	
+	
 	public Integer getId_usuario() {
 		return id_usuario;
 	}
@@ -28,5 +28,4 @@ public class UsuarioPerfil {
 	public String toString() {
 		return "UsuarioPerfil [id_usuario=" + id_usuario + ", id_perfil=" + id_perfil + "]";
 	}
-	
-	*/
+}
