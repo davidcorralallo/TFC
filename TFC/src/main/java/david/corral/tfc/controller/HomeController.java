@@ -30,13 +30,23 @@ public class HomeController {
     }
 	
 	@GetMapping("/login")
-    public String mostrarLogIn() {
+    public String login() {
     	return "/logIn";
+    }
+	
+	@GetMapping("/singup")
+    public String singup() {
+    	return "/singup";
     }
 	
 	@GetMapping("/admin")
     public String mostrarAdmin() {
     	return "/admin";
+    }
+	
+	@GetMapping("/contacto")
+    public String mostrarContacto() {
+    	return "/contacto";
     }
 	
 	@GetMapping("/coches")

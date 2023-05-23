@@ -23,7 +23,6 @@ public class Clientes {
 	private String nombre;
 	private String apellido;
 	private String telefono;
-	private String direccion;
 	private String email;
 	private String usuario;
 	private String contraseña;
@@ -91,14 +90,6 @@ public class Clientes {
 		this.telefono = telefono;
 	}
 
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -126,7 +117,7 @@ public class Clientes {
 	@Override
 	public String toString() {
 		return "Clientes [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono
-				+ ", direccion=" + direccion + ", email=" + email + ", usuario=" + usuario + ", contraseña="
+				+ ", email=" + email + ", usuario=" + usuario + ", contraseña="
 				+ contraseña + ", estatus=" + estatus + ", fechaRegistro=" + fechaRegistro + "]";
 	}
 

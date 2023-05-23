@@ -1,13 +1,18 @@
 package david.corral.tfc.entity;
 
 import javax.persistence.Entity;
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table (name="usuarioperfil")
 public class UsuarioPerfil {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
 	private Integer id_usuario;
 	private Integer id_perfil;
 	
@@ -24,6 +29,7 @@ public class UsuarioPerfil {
 	public void setId_perfil(Integer id_perfil) {
 		this.id_perfil = id_perfil;
 	}
+	
 	@Override
 	public String toString() {
 		return "UsuarioPerfil [id_usuario=" + id_usuario + ", id_perfil=" + id_perfil + "]";

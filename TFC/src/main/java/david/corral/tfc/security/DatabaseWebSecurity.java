@@ -36,9 +36,11 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
                                             "/logo/**").permitAll().antMatchers("/",
                                             									"/personajes/api/**",
                                                                                 "/login",
+                                                                                "/singup",
+                                                                                "/contacto",
                                                                                 "/search",
                                                                                 "/encriptar/**",
-                                                                                "/juego/lista").permitAll().antMatchers("/personaje/").hasAnyAuthority("ADMINISTRADOR")
+                                                                                "/juego/lista").permitAll().antMatchers("/tienda").hasAnyAuthority("ADMINISTRADOR")
                                                                                                                 .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll();		
         }
     

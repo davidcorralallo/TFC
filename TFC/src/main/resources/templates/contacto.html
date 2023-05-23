@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webjars/font-awesome/5.15.4/css/all.min.css" />
+	<link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/contacto.css">
+    <link rel="stylesheet" href="/css/Header.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Coruña Automoción | Contacto</title>
+</head>
+<body>
+	<!-- |header| 				   	 			  |header|	  -->
+    <header th:insert="fragments/header"></header>
+    <!-- ====================================================== -->
+    <main>
+        <section class="row">
+        	<div class="formulario col">
+        		<h2 class="row">Envíanos un mensaje</h2>
+        		<input class="campo row" placeholder="Nombre" />
+        		<input class="campo row" placeholder="Email" />
+        		<input class="campo row" placeholder="Asunto" />
+        		<input class="campo row" placeholder="Cuerpo" />
+        		<button class="boton">Enviar</button>
+        	</div>
+        	
+        	<div class="info col">
+        		<div class="col">
+        			<div class="row">
+        				<h3>Dirección:</h3>
+        			</div>
+        			<div class="row">
+        				<p class="text-center">Avenida das Mariñas, 295,<br>
+        				 15172 Perillo, A Coruña</p>
+        			</div>
+        		</div>
+        		<hr>
+        		<div class="col">
+        			<div class="row">
+        				<h3>Teléfono:</h3>
+        			</div>
+        			<div class="row">
+        				<p class="text-center">693 84 58 58</p>
+        			</div>
+        		</div>
+        		<hr>
+        		<div class="col">
+        			<div class="row">
+        				<h3>Correo:</h3>
+        			</div>
+        			<div class="row">
+        				<p class="text-center">Coruñaautomoción@gmail.com</p>
+        			</div>
+        		</div>
+        	</div>
+        </section>
+    </main>
+    <!-- |footer| 				   	 	         |footer|	  -->
+    <footer class="row d-flex" th:insert="fragments/footer"></footer>
+    <!-- ====================================================== -->
+</body>
+</html>

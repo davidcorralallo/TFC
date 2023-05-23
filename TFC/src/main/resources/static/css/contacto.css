@@ -1,0 +1,81 @@
+@charset "ISO-8859-1";
+
+main {
+    background-color: #28242c;
+    display:flex !important;
+	justify-content: center;
+}
+
+section {
+	background-color: white;
+	width: 80%;
+	display: flex;
+	align-items: center;
+}
+
+.formulario {
+	background-color: #28242c;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 7.5px;
+	margin: 2vw;
+}
+
+h2 {
+	color:white;
+	padding-top: 2vw;
+	padding-bottom: 2vw;
+	font-size: 2vw !important;
+}
+
+.campo {
+	background-color: white;
+	width: 75%;
+	height: 5vw;
+	border: none;
+	border-radius: 5px;
+	margin-bottom:2vw;
+}
+
+.boton {
+    background: rgb(255, 0, 100);
+    border-radius: 999px;
+    box-shadow: rgb(255, 0, 100) 0 10px 20px -10px;
+    color: #FFFFFF;
+    font-size: 1.5vw;
+    font-weight: 700;
+    line-height: 2vw;
+    opacity: 1;
+    padding: 1vw 2vw;
+    border: 0;
+    margin-bottom:7.5%;
+}
+
+.info {
+	height: 80%;
+	display: flex;
+	justify-content: center;
+	align-content:center;
+	flex-direction: column;
+	
+}
+
+
+.info div{
+	display: flex;
+	justify-content: space-around;
+	align-content: center;
+	flex-direction: column;
+}
+
+
+hr {
+    background-color: rgb(255, 0, 100);
+    border-color: rgb(255, 0, 100);
+    border-radius: 100px;
+    opacity: 100%;
+    width: 40%;
+    height: 0.25vw !important;
+}
