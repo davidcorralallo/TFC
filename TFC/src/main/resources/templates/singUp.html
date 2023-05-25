@@ -20,7 +20,7 @@
     <header th:insert="fragments/header"></header>
     <!-- ====================================================== -->
     <main>
-        <form class="col">
+        <form class="col" th:action="@{/singUp}">
             <h2>Registrar</h2>
             <div class="row campo">
                 <input type="text" id="nombre" name="nombre" placeholder="Nombre">

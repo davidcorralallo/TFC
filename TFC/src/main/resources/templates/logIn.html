@@ -19,7 +19,7 @@
     <header th:insert="fragments/header"></header>
     <!-- ====================================================== -->
     <main>
-        <form class="col">
+        <form class="col" th:action="@{/login}">
             <h2>Log In</h2>
             <div class="row campo">
                 <input type="text" id="user" name="user" placeholder="Username" >
