@@ -33,7 +33,6 @@ public class HomeController {
 	
 	@GetMapping("/")
     public String mostrarHome(Authentication auth) {
-		System.out.println(auth.getName());
     	return "/Home";
     }
 	

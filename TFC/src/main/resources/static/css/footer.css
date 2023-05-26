@@ -39,6 +39,10 @@ footer h3 { font-size: 2vw;}
     cursor: pointer;
 }
 
+.rrss {
+	background-color: rgb(40, 36, 44, 0.2);
+}
+
 .rrss span{
     height: 3vw;
     width: 3vw;
@@ -56,6 +60,8 @@ footer h3 { font-size: 2vw;}
     background-color: white;
     cursor: pointer;
 }
+
+
 
 .row {
     --bs-gutter-x: 0rem;

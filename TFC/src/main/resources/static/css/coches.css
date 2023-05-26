@@ -1,0 +1,61 @@
+@charset "ISO-8859-1";
+
+main {
+    background-color: #28242c;
+    color: white;
+    align-text: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.boton2 {
+    background: rgb(255, 0, 100);
+    border-radius: 999px;
+    box-shadow: rgb(255, 0, 100) 0 10px 20px -10px;
+    color: #FFFFFF;
+    font-size: 1.5vw;
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    padding: 1vw 2vw;
+    border: 0;
+    margin-bottom:7.5%;
+    margin-top:10%;
+    display: flex;
+    justify-content: center;
+    margin: 2vw;
+}
+
+a {
+    text-decoration:none;
+}
+
+.prestaciones div {
+	padding-top: 2.5vw;
+	padding-bottom: 2.5vw;
+}
+
+
+.botones div{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+article {
+	border: solid 2.5px white;
+	border-radius: 15px;
+	padding: 5%;
+
+}
+
+section {
+	padding-right: 20% !important;
+	padding-left: 20% !important;
+}
+
+
+
+
+
+
