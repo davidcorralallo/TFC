@@ -22,10 +22,10 @@ public class Clientes {
 	private Integer id;
 	private String nombre;
 	private String apellido;
-	private String telefono;
+	//private String telefono;
 	private String email;
 	private String usuario;
-	private String contraseña;
+	private String password;
 	private Integer estatus;
 	private Date fechaRegistro;
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
@@ -81,7 +81,7 @@ public class Clientes {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-
+/*
 	public String getTelefono() {
 		return telefono;
 	}
@@ -89,7 +89,7 @@ public class Clientes {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-
+*/
 	public String getEmail() {
 		return email;
 	}
@@ -106,19 +106,29 @@ public class Clientes {
 		this.usuario = usuario;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setPassword(String contraseña) {
+		this.password = contraseña;
 	}
+
+	public List<Perfiles> getPerfiles() {
+		return perfiles;
+	}
+
+
+	public void setPerfiles(List<Perfiles> perfiles) {
+		this.perfiles = perfiles;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Clientes [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono
-				+ ", email=" + email + ", usuario=" + usuario + ", contraseña="
-				+ contraseña + ", estatus=" + estatus + ", fechaRegistro=" + fechaRegistro + "]";
+		return "Clientes [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido +/* ", telefono=" + telefono
+				+*/ ", email=" + email + ", usuario=" + usuario + ", password="
+				+ password + ", estatus=" + estatus + ", fechaRegistro=" + fechaRegistro + "]";
 	}
 
 	

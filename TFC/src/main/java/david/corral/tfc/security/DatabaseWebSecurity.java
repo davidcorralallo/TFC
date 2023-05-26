@@ -22,7 +22,11 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource);
+        auth.jdbcAuthentication()
+        .dataSource(dataSource).usersByUsernameQuery("select usuario, password, estatus from clientes where usuario=?")
+        .authoritiesByUsernameQuery("select c.usuario, p.perfil from usuarioperfil up "
+                + "inner join clientes c on c.id = up.idUsuario "
+                + "inner join perfiles p on p.id = up.idPerfil where c.usuario = ?");
      
     }
 
@@ -33,15 +37,15 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
                                             "/tinimce/**",
                                             "/css/**",
                                             "/img/**",
-                                            "/logo/**").permitAll().antMatchers("/",
-                                            									"/personajes/api/**",
+                                            "/logo/**").permitAll().antMatchers("/",				
                                                                                 "/login",
                                                                                 "/singup",
                                                                                 "/contacto",
                                                                                 "/search",
+                                                                                "/saveuser",
                                                                                 "/encriptar/**",
-                                                                                "/juego/lista").permitAll().antMatchers("/tienda").hasAnyAuthority("ADMINISTRADOR")
-                                                                                                                .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll();		
+                                                                                "/juego/lista").permitAll().antMatchers("/coches").hasAnyAuthority("ADMIN")
+                                                                                                                .anyRequest().authenticated().and().formLogin().loginPage("/login").failureUrl("/login?error=true").permitAll();		
         }
     
     @Bean
