@@ -193,6 +193,8 @@ small.justify-content-center{
 .iconoInfo{
     height: 1.5vw;
     width:1.5vw;
+    display: flex;
+    align-self: center;
 }
 
 .text-muted {
