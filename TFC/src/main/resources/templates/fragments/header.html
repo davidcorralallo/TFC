@@ -6,13 +6,13 @@
    				Tienda
     		</a>
     		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    			<a class="dropdown-item" th:href="@{/coches}">Coches</a>
+    			<a class="dropdown-item" th:href="@{/coches/lista}">Coches</a>
     			<a class="dropdown-item" th:href="@{/productos}">Productos</a>
     		</div>
 		</li>
     	<li><a th:href="@{/}"><img src="/img/header/dibujo.png" class="logo"></a></li>
     	<li><a th:href="@{/contacto}">Contacto</a></li>
-       	<li class="nav-item dropdown">
+       	<li class="nav-item dropdown" sec:authorize="isAnonymous()">
     		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    				Entrar
     		</a>
@@ -20,6 +20,9 @@
     			<a class="dropdown-item" href="/login">Log In</a>
     			<a class="dropdown-item" href="/singup">Registar</a>
     		</div>
+		</li>
+		<li sec:authorize="isAuthenticated()">
+			<a class="botonNav" th:href="@{/logout}">Salir</a>
 		</li>
 	</ul>
 </nav>
