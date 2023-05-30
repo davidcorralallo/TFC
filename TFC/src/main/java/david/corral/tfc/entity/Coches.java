@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import david.corral.tfc.enums.Cambio;
 import david.corral.tfc.enums.Combustible;
 import david.corral.tfc.enums.Marcas;
@@ -94,6 +95,12 @@ public class Coches {
 	}
 	public void setPotencia(Integer potencia) {
 		this.potencia = potencia;
+	}
+	@Override
+	public String toString() {
+		return "Coches [id=" + id + ", marca=" + marca + ", modelo=" + modelo + ", potencia=" + potencia + ", cambio="
+				+ cambio + ", traccion=" + traccion + ", combustible=" + combustible + ", plazas=" + plazas
+				+ ", precio=" + precio + ", img=" + img + "]";
 	}
 	
 	

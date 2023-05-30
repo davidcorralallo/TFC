@@ -20,20 +20,20 @@
     <!-- ====================================================== -->
     <main>
         <section class="col">
-        	<article class="col">
+        	<article class="col" th:each="c: ${c}">
         		<div class="row">
         			<div class="col-6">
-        				<!--Aqui la imagen -->
+        				<img th:src="${c.img}" class="imgCoche">
         			</div>
 					
         			<div class="col-6 text-center">
         				<div class="row prestaciones">
-        					<div class="col-6">Audi</div>
-        					<div class="col-6">R8</div>
+        					<div class="col-6" th:text="${c.marca}"></div>
+        					<div class="col-6" th:text="${c.modelo}"></div>
         				</div>
         				<div class="row prestaciones">
-        					<div class="col-6">225.000€</div>
-        					<div class="col-6">2 Plazas</div>
+        					<div class="col-6" th:text="${#numbers.formatDecimal(c.precio, 0, 'POINT', 0, 'COMMA')} + ' €'"></div>
+        					<div class="col-6" th:text="${c.plazas} + ' Plazas'"></div>
         				</div>
         			</div>
         		</div>
