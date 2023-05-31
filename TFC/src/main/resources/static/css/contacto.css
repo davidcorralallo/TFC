@@ -26,12 +26,41 @@ section {
 	margin: 2vw;
 }
 
+.info {
+	height: 80%;
+	display: flex;
+	justify-content: center;
+	align-content:center;
+	flex-direction: column;
+	
+}
+
+
+.info div{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+}
+
+/* Posicionamiento de los contenedores principales + bordes */
+
 h2 {
 	color:white;
 	padding-top: 2vw;
 	padding-bottom: 2vw;
 	font-size: 2vw !important;
 }
+
+h3 {
+	font-size: 2vw !important;
+}
+
+p {
+	font-size: 1vw !important;
+}
+
+/* Estilos de texto */
 
 .campo {
 	background-color: white;
@@ -60,22 +89,9 @@ h2 {
     margin-bottom:7.5%;
 }
 
-.info {
-	height: 80%;
-	display: flex;
-	justify-content: center;
-	align-content:center;
-	flex-direction: column;
-	
-}
+/* Estilo del botón de envio */
 
 
-.info div{
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	flex-direction: column;
-}
 
 
 hr {
@@ -87,14 +103,7 @@ hr {
     height: 0.25vw !important;
 }
 
-h3 {
-	font-size: 2vw !important;
-}
-
-p {
-	font-size: 1vw !important;
-}
-
+/* Estilos de los hr que separan informacion */
 
 
 

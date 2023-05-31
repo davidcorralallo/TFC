@@ -28,9 +28,9 @@ public class CochesController {
 	
 	@GetMapping("/detalle")
 	public String mostrarDetalle (Coches c, Model model) {
-		List <Coches> lista = cServ.buscarTodos();
-    	model.addAttribute("c", lista);
-    	System.out.println(lista);
-		return "/coches/lista";
+		
+		return "/coches/detalle";
 	}
+	
+	
 }
