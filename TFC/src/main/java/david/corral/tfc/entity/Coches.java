@@ -24,12 +24,16 @@ public class Coches {
 	private Marcas marca;
 	private String modelo;
 	private Integer potencia;
+	private String motor;
+	private String propulsion;
 	@Enumerated(EnumType.STRING)
 	private Cambio cambio;
 	@Enumerated(EnumType.STRING)
 	private Traccion traccion;
 	@Enumerated(EnumType.STRING)
 	private Combustible combustible;
+	private Double consumoCiudad;
+	private Double consumoAutopista;
 	private Integer plazas;
 	private Double precio;
 	private String img;
@@ -96,12 +100,40 @@ public class Coches {
 	public void setPotencia(Integer potencia) {
 		this.potencia = potencia;
 	}
+	
+	public String getMotor() {
+		return motor;
+	}
+	public void setMotor(String motor) {
+		this.motor = motor;
+	}
+	public String getPropulsion() {
+		return propulsion;
+	}
+	public void setPropulsion(String propulsion) {
+		this.propulsion = propulsion;
+	}
+	public Double getConsumoCiudad() {
+		return consumoCiudad;
+	}
+	public void setConsumoCiudad(Double consumoCiudad) {
+		this.consumoCiudad = consumoCiudad;
+	}
+	public Double getConsumoAutopista() {
+		return consumoAutopista;
+	}
+	public void setConsumoAutopista(Double consumoAutopista) {
+		this.consumoAutopista = consumoAutopista;
+	}
 	@Override
 	public String toString() {
-		return "Coches [id=" + id + ", marca=" + marca + ", modelo=" + modelo + ", potencia=" + potencia + ", cambio="
-				+ cambio + ", traccion=" + traccion + ", combustible=" + combustible + ", plazas=" + plazas
-				+ ", precio=" + precio + ", img=" + img + "]";
+		return "Coches [id=" + id + ", marca=" + marca + ", modelo=" + modelo + ", potencia=" + potencia
+				+ ", motor=" + motor + ", propulsion=" + propulsion + ", cambio=" + cambio
+				+ ", traccion=" + traccion + ", combustible=" + combustible
+				+ ", consumoCiudad=" + consumoCiudad + ", consumoAutopista=" + consumoAutopista
+				+ ", plazas=" + plazas + ", precio=" + precio + ", img=" + img + "]";
 	}
+	
 	
 	
 	

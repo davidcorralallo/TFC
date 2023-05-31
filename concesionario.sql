@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 19-05-2023 a las 11:27:52
+-- Tiempo de generación: 31-05-2023 a las 07:45:45
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -32,15 +32,22 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `apellido` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `telefono` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `direccion` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `usuario` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `contraseña` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `estatus` tinyint NOT NULL,
   `fechaRegistro` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `nombre`, `apellido`, `email`, `usuario`, `password`, `estatus`, `fechaRegistro`) VALUES
+(1, 'David', 'Corral', 'davidcorralallo@gmail.com', 'David123', '{noop}123', 1, '2023-05-19'),
+(5, 'qwe', 'qwe', 'qwe@gmail.com', 'qwe', '$2a$10$TWUMA4fQFtzMM60YIS/ifeud7byeL9Gl8.nyDlUfZWDJlRUKrL90S', 1, '2023-05-26'),
+(7, 'Esther', 'Gomez Mantiñan', 'esther@gmail.com', 'esther123', '$2a$10$.7qyzLUMPaQ1CvmaIz8FW.NYd7p5cSPPFLiZ1kg834FTI.6KZOS5q', 1, '2023-05-27');
 
 -- --------------------------------------------------------
 
@@ -51,17 +58,29 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 DROP TABLE IF EXISTS `coches`;
 CREATE TABLE IF NOT EXISTS `coches` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `marca` enum('Audi','Bmw','Cupra','Dacia','Ferrari','Fiat','Ford','Honda','Hyundai','Jaguar','Jeep','Kia','LandRover','Lexus','Maserati','Mazda','Mercedes','Mini','Nissan','Peugeot','Porche','Renault','Seat','Tesla','Toyota','Volskwagen','Lamborghini','') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `marca` enum('Audi','Bmw','Cupra','Dacia','Ferrari','Fiat','Ford','Honda','Hyundai','Jaguar','Jeep','Kia','Lamborghini','LandRover','Lexus','Maserati','Mazda','Mercedes','Mini','Nissan','Peugeot','Porche','Renault','Seat','Tesla','Toyota','Volskwagen') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `modelo` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `potencia` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `potencia` int NOT NULL,
+  `motor` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `propulsion` enum('Atmosférico','Turbo','Doble Turbo') COLLATE utf8mb4_unicode_ci NOT NULL,
   `cambio` enum('Manual','Automático') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `traccion` enum('Delantera','Trasera','Integral') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `combustible` enum('Gasolina','Diésel','Eléctrico') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `consumoCiudad` decimal(3,1) NOT NULL,
+  `consumoAutopista` decimal(3,1) NOT NULL,
   `plazas` int NOT NULL,
-  `precio` decimal(10,2) NOT NULL,
+  `precio` int NOT NULL,
   `img` varchar(155) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `coches`
+--
+
+INSERT INTO `coches` (`id`, `marca`, `modelo`, `potencia`, `motor`, `propulsion`, `cambio`, `traccion`, `combustible`, `consumoCiudad`, `consumoAutopista`, `plazas`, `precio`, `img`) VALUES
+(1, 'Audi', 'TT RS', 400, '5 en línea', 'Atmosférico', 'Automático', 'Integral', 'Gasolina', '0.0', '0.0', 4, 92010, 'https://soymotor.com/sites/default/files/usuarios/redaccion/portal/jmorillo/audi_tt_rs_coupe_iconic_edition_4.jpg'),
+(2, 'Audi', 'RS 7', 630, '', 'Atmosférico', 'Automático', 'Integral', 'Gasolina', '0.0', '0.0', 5, 175570, 'https://www.tuningblog.eu/wp-content/uploads/2022/10/2022-BTM-Audi-RS7-Sportback-C8-Tuning-1000-PS-2.jpg');
 
 -- --------------------------------------------------------
 
@@ -78,6 +97,13 @@ CREATE TABLE IF NOT EXISTS `cohesconcesionario` (
   KEY `relacion_a_concesionarios` (`idConcesioario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `cohesconcesionario`
+--
+
+INSERT INTO `cohesconcesionario` (`IdCoche`, `idConcesioario`) VALUES
+(1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -89,12 +115,15 @@ CREATE TABLE IF NOT EXISTS `concesionario` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `localizacion` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_empleado` int NOT NULL,
-  `id_coche` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_empleado` (`id_empleado`,`id_coche`),
-  KEY `relacion_a_coches` (`id_coche`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `concesionario`
+--
+
+INSERT INTO `concesionario` (`id`, `nombre`, `localizacion`) VALUES
+(1, 'Coruña Automoción', 'La Coruña, Galicia');
 
 -- --------------------------------------------------------
 
@@ -110,8 +139,17 @@ CREATE TABLE IF NOT EXISTS `empleados` (
   `puesto` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `salario` decimal(10,2) NOT NULL,
   `fecha_contrato` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `idConcesionario` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idConcesionario` (`idConcesionario`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `empleados`
+--
+
+INSERT INTO `empleados` (`id`, `nombre`, `apellido`, `puesto`, `salario`, `fecha_contrato`, `idConcesionario`) VALUES
+(1, 'Ignacio', 'Varela', 'Gerente', '0.00', '2022-05-19', 1);
 
 -- --------------------------------------------------------
 
@@ -124,7 +162,15 @@ CREATE TABLE IF NOT EXISTS `perfiles` (
   `id` int NOT NULL AUTO_INCREMENT,
   `perfil` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `perfiles`
+--
+
+INSERT INTO `perfiles` (`id`, `perfil`) VALUES
+(1, 'USUARIO'),
+(2, 'ADMIN');
 
 -- --------------------------------------------------------
 
@@ -140,6 +186,15 @@ CREATE TABLE IF NOT EXISTS `usuarioperfil` (
   KEY `idUsuario` (`idUsuario`,`idPerfil`),
   KEY `relacion_a_perfiles` (`idPerfil`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `usuarioperfil`
+--
+
+INSERT INTO `usuarioperfil` (`idUsuario`, `idPerfil`) VALUES
+(1, 2),
+(5, 2),
+(7, 2);
 
 -- --------------------------------------------------------
 
@@ -170,10 +225,10 @@ ALTER TABLE `cohesconcesionario`
   ADD CONSTRAINT `relacion_a_concesionarios` FOREIGN KEY (`idConcesioario`) REFERENCES `concesionario` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Filtros para la tabla `concesionario`
+-- Filtros para la tabla `empleados`
 --
-ALTER TABLE `concesionario`
-  ADD CONSTRAINT `relacion_a_empleados` FOREIGN KEY (`id_empleado`) REFERENCES `empleados` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `empleados`
+  ADD CONSTRAINT `relacion_a_concesionario2` FOREIGN KEY (`idConcesionario`) REFERENCES `concesionario` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Filtros para la tabla `usuarioperfil`

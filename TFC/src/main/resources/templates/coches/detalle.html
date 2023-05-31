@@ -19,7 +19,38 @@
     <header th:insert="fragments/header"></header>
     <!-- ====================================================== -->
     <main>
-        	
+    	<section>
+        	<div class="col">
+        		<div class="row">
+        			<img th:src="${c.img}" class="imgDetalle">
+        		</div>
+        		<div class="row">
+        			<h3 th:text="${c.marca}"></h3>
+        		</div>
+        		<div class="row">
+        			<div class="col"> <!--  Motor  -->
+						<div class="row">
+							<img src="/img/icons/Producto/Motor.png">
+						</div>
+						<div class="row">
+							<h3 th:text="${c.motor}"></h3>
+						</div>
+					</div>
+        			<div class="col">
+						
+					</div>
+        			<div class="col">
+						
+					</div>
+        		</div>
+        		<div class="row">
+        			
+        		</div>
+        		<div class="row">
+        			
+        		</div>
+        	</div>
+       	</section>
     </main>
     <!-- |footer| 				   	 	         |footer|	  -->
     <footer class="row d-flex" th:insert="fragments/footer"></footer>
