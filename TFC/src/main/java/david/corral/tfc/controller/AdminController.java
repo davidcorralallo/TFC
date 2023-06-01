@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import david.corral.tfc.entity.Clientes;
 import david.corral.tfc.entity.Coches;
+import david.corral.tfc.entity.Empleados;
 import david.corral.tfc.entity.Productos;
 import david.corral.tfc.service.ClientesServiceImp;
 import david.corral.tfc.service.CochesServiceImp;
+import david.corral.tfc.service.EmpleadoServiceImp;
 import david.corral.tfc.service.ProductosServiceImp;
 
 @Controller
@@ -28,6 +30,9 @@ public class AdminController {
 	
 	@Autowired
 	ProductosServiceImp pServ;
+	
+	@Autowired
+	EmpleadoServiceImp eServ;
 	
 	
 	//	ADMIN - USUARIOS
@@ -47,7 +52,6 @@ public class AdminController {
     }
 	
 	//	ADMIN - PRODUCTOS
-	
 	@GetMapping("/productos")
     public String mostrarProductos (Productos p, Model model) {
     	List <Productos> lista = pServ.buscarTodos();
@@ -66,14 +70,14 @@ public class AdminController {
 	@GetMapping("/productos/delete/{id}")
     public String eliminarProductos(@PathVariable("id") int idProducto, Model model) {
         System.out.println("Borrado del producto: " + idProducto);
-        coServ.eliminarCoche(idProducto);
+        pServ.eliminarProducto(idProducto);
         return "redirect:/admin/productos";
     }
 	
 	
 	//	ADMIN - COCHES
 	@GetMapping("/coches")
-    public String mostrarCoches (Clientes co, Model model) {
+    public String mostrarCoches (Coches c, Model model) {
 		List <Coches> lista = coServ.buscarTodos();
     	model.addAttribute("c", lista);
     	System.out.println(lista);
@@ -94,4 +98,27 @@ public class AdminController {
         return "redirect:/admin/coches";
     }
 	
+	
+//	ADMIN - EMPLEADOS
+	@GetMapping("/empleados")
+    public String mostrarEmpelados (Empleados e, Model model) {
+		List <Empleados> lista = eServ.buscarTodos();
+    	model.addAttribute("e", lista);
+    	System.out.println(lista);
+		return "/admin/adminEmpleados";
+    }
+	
+	@GetMapping("/empleados/edit/{id}")
+    public String editEmpleado (@PathVariable("id") int idEmpleado, Model model) {
+    	Empleados empleado = eServ.findById(idEmpleado);
+    	model.addAttribute("e", empleado);
+		return "/admin/empleadosForm";
+    }
+	
+	@GetMapping("/empleados/delete/{id}")
+    public String eliminarEmpleado(@PathVariable("id") int idEmpleado, Model model) {
+        System.out.println("Borrado del empleado: " + idEmpleado);
+        eServ.eliminarEmpleado(idEmpleado);
+        return "redirect:/admin/empleados";
+    }
 }
