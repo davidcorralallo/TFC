@@ -1,6 +1,8 @@
 package david.corral.tfc.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,16 +16,19 @@ public class Perfiles {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer IdPerfil;
+	private Integer id;
+	@Enumerated(EnumType.STRING)
 	private Perfil perfil;
 	
 	
+	
+
 	public Integer getId() {
-		return IdPerfil;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		this.IdPerfil = id;
+		this.id = id;
 	}
 
 	public Perfil getPerfil() {
@@ -36,8 +41,10 @@ public class Perfiles {
 
 	@Override
 	public String toString() {
-		return "Perfiles [IdPerfil=" + IdPerfil + ", perfil=" + perfil + "]";
+		return "Perfiles [id=" + id + ", perfil=" + perfil + "]";
 	}
+
+	
 
 	
 }

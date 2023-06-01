@@ -13,25 +13,35 @@ public class UsuarioPerfil {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private Integer id_usuario;
-	private Integer id_perfil;
-	
-	
-	public Integer getId_usuario() {
-		return id_usuario;
+	private Integer idUsuario;
+	private Integer idPerfil;
+	public Integer getId() {
+		return id;
 	}
-	public void setId_usuario(Integer id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	public Integer getId_perfil() {
-		return id_perfil;
+	public Integer getIdUsuario() {
+		return idUsuario;
 	}
-	public void setId_perfil(Integer id_perfil) {
-		this.id_perfil = id_perfil;
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
 	}
-	
+	public Integer getIdPerfil() {
+		return idPerfil;
+	}
+	public void setIdPerfil(Integer idPerfil) {
+		this.idPerfil = idPerfil;
+	}
 	@Override
 	public String toString() {
-		return "UsuarioPerfil [id_usuario=" + id_usuario + ", id_perfil=" + id_perfil + "]";
+		return "UsuarioPerfil [id=" + id + ", idUsuario=" + idUsuario + ", idPerfil=" + idPerfil + "]";
 	}
+	
+	
+	
+	
+	
+	
+	
 }

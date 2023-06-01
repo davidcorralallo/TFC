@@ -119,7 +119,6 @@ section{
 /*Hasta aqui servicios */
 
 /* Productos destacados */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 body{
 	background: #F5F1EE;
 	font-family: 'Roboto', sans-serif;
@@ -134,13 +133,14 @@ body{
 	border-top-left-radius: 10px;
 }
 span.text-muted{
-	font-size: 12px;
+	font-size: 1vw;
 }
 small.text-muted{
 	font-size: 0.5vw;
 }
 h6{
 	color: black !important;
+	font-size: 1vw !important;
 }
 h5.mb-0{
 	font-size: 1vw;
@@ -156,23 +156,6 @@ small.ghj{
 h6.ml-1{
 	font-size: 1vw;
 	color: black !important;
-}
-small.key{
-	text-decoration: underline;
-	font-size: 9px;
-	cursor: pointer;
-}
-
-small.justify-content-center{
-	font-size: 9px;
-	cursor: pointer;
-	text-decoration: underline;
-}
-
-@media screen and (max-width:600px){
-    .col-sm-4{
-        margin-bottom: 50px;
-    }
 }
 
 .imgCar {
@@ -199,20 +182,19 @@ small.justify-content-center{
 
 .text-muted {
 	color: black !important;
+	font-size: 2vw;
 }
 
 h2{
 	width: 100%;
-		color:rgb(255, 0, 100);
-	
+	color:rgb(255, 0, 100);
+	font-size: 3vw !important;
 }
 
 .card-body hr {
 	background-color:rgb(255, 0, 100) !important;
 	color:rgb(255, 0, 100) !important;
 }
-
-
 
 
 

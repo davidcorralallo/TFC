@@ -1,6 +1,13 @@
 <nav>
 	<ul class="nav">
-    	<li><a th:href="@{/}">Home</a></li>
+		<li sec:authorize="hasAnyAuthority('ADMIN')">	
+        	<a th:href="@{/admin/}">Admin</a>
+        </li>
+        
+        <li sec:authorize="isAnonymous() || hasAnyAuthority('USUARIO')">
+        	<a th:href="@{/}">Home</a>
+        </li>
+            	
     	<li class="nav-item dropdown">
     		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    				Tienda

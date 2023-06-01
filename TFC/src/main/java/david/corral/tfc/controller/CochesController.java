@@ -28,7 +28,6 @@ public class CochesController {
 	
 	@GetMapping("/detalle")
 	public String mostrarDetalle (Coches c, Model model) {
-		
 		return "/coches/detalle";
 	}
 	

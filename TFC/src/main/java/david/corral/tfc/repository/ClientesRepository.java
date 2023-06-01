@@ -4,8 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import david.corral.tfc.entity.Clientes;
 
-
-
 public interface ClientesRepository extends JpaRepository<Clientes, Integer> {
 
 }

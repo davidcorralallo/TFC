@@ -49,10 +49,6 @@ public class HomeController {
     	return "/singup";
     }
 	
-	@GetMapping("/admin")
-    public String mostrarAdmin() {
-    	return "/admin";
-    }
 	
 	@GetMapping("/contacto")
     public String mostrarContacto() {
