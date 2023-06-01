@@ -88,3 +88,20 @@ tbody tr:hover {
     background-color: #28242c;
     color: white;
 }
+
+.opciones {
+	width: 10%;
+	display: flex;
+}
+
+.boton-admin {
+	color: rgb(255, 0, 100);
+	margin-right: 500%;
+}
+
+
+
+
+
+
+

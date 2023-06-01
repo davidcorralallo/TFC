@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 31-05-2023 a las 07:45:45
+-- Tiempo de generación: 01-06-2023 a las 19:24:38
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `estatus` tinyint NOT NULL,
   `fechaRegistro` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `clientes`
@@ -47,7 +47,8 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 INSERT INTO `clientes` (`id`, `nombre`, `apellido`, `email`, `usuario`, `password`, `estatus`, `fechaRegistro`) VALUES
 (1, 'David', 'Corral', 'davidcorralallo@gmail.com', 'David123', '{noop}123', 1, '2023-05-19'),
 (5, 'qwe', 'qwe', 'qwe@gmail.com', 'qwe', '$2a$10$TWUMA4fQFtzMM60YIS/ifeud7byeL9Gl8.nyDlUfZWDJlRUKrL90S', 1, '2023-05-26'),
-(7, 'Esther', 'Gomez Mantiñan', 'esther@gmail.com', 'esther123', '$2a$10$.7qyzLUMPaQ1CvmaIz8FW.NYd7p5cSPPFLiZ1kg834FTI.6KZOS5q', 1, '2023-05-27');
+(7, 'Esther', 'Gomez Mantiñan', 'esther@gmail.com', 'esther123', '$2a$10$.7qyzLUMPaQ1CvmaIz8FW.NYd7p5cSPPFLiZ1kg834FTI.6KZOS5q', 1, '2023-05-27'),
+(8, 'prueba', 'prueba', 'prueba@gmail.com', 'prueba', '$2a$10$f/qJV9VzPsTmgmqBGzvI3.ECXARZVFP3WliVltLK8lNhcReve.cM6', 0, '2023-06-01');
 
 -- --------------------------------------------------------
 
@@ -79,8 +80,7 @@ CREATE TABLE IF NOT EXISTS `coches` (
 --
 
 INSERT INTO `coches` (`id`, `marca`, `modelo`, `potencia`, `motor`, `propulsion`, `cambio`, `traccion`, `combustible`, `consumoCiudad`, `consumoAutopista`, `plazas`, `precio`, `img`) VALUES
-(1, 'Audi', 'TT RS', 400, '5 en línea', 'Atmosférico', 'Automático', 'Integral', 'Gasolina', '0.0', '0.0', 4, 92010, 'https://soymotor.com/sites/default/files/usuarios/redaccion/portal/jmorillo/audi_tt_rs_coupe_iconic_edition_4.jpg'),
-(2, 'Audi', 'RS 7', 630, '', 'Atmosférico', 'Automático', 'Integral', 'Gasolina', '0.0', '0.0', 5, 175570, 'https://www.tuningblog.eu/wp-content/uploads/2022/10/2022-BTM-Audi-RS7-Sportback-C8-Tuning-1000-PS-2.jpg');
+(1, 'Audi', 'TT RS', 400, '5 en línea', 'Turbo', 'Automático', 'Integral', 'Gasolina', '13.5', '8.0', 4, 92010, 'https://soymotor.com/sites/default/files/usuarios/redaccion/portal/jmorillo/audi_tt_rs_coupe_iconic_edition_4.jpg');
 
 -- --------------------------------------------------------
 
@@ -175,6 +175,30 @@ INSERT INTO `perfiles` (`id`, `perfil`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `productos`
+--
+
+DROP TABLE IF EXISTS `productos`;
+CREATE TABLE IF NOT EXISTS `productos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `marca` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `info` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `precio` int NOT NULL,
+  `img` varchar(155) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `nombre`, `marca`, `info`, `precio`, `img`) VALUES
+(1, 'Llanta de aluminio', 'BBS', 'Llanta de aluminio Bbs Super RS 8.5x19 5x112 ET43 borde pulido dorado', 1756, 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSilnL0LZxTtejVlgV2pSSjqvpOqTosdZRAjMuRGOGs0Mjf_9iWD9lkqIYiOaeNzruDIVAI_cwi5v0-LJFfkuntbBF_mhb4qyGDC');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarioperfil`
 --
 
@@ -192,9 +216,10 @@ CREATE TABLE IF NOT EXISTS `usuarioperfil` (
 --
 
 INSERT INTO `usuarioperfil` (`idUsuario`, `idPerfil`) VALUES
+(7, 1),
 (1, 2),
 (5, 2),
-(7, 2);
+(8, 2);
 
 -- --------------------------------------------------------
 
@@ -207,10 +232,12 @@ CREATE TABLE IF NOT EXISTS `ventas` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_cliente` int NOT NULL,
   `id_coche` int NOT NULL,
+  `id_producto` int NOT NULL,
   `fecha_venta` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_cliente` (`id_cliente`),
-  KEY `id_coche` (`id_coche`)
+  KEY `id_coche` (`id_coche`),
+  KEY `id_producto` (`id_producto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -242,7 +269,8 @@ ALTER TABLE `usuarioperfil`
 --
 ALTER TABLE `ventas`
   ADD CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`),
-  ADD CONSTRAINT `ventas_ibfk_2` FOREIGN KEY (`id_coche`) REFERENCES `coches` (`id`);
+  ADD CONSTRAINT `ventas_ibfk_2` FOREIGN KEY (`id_coche`) REFERENCES `coches` (`id`),
+  ADD CONSTRAINT `ventas_ibfk_3` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

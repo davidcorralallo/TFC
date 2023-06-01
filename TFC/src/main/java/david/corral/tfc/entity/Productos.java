@@ -18,7 +18,7 @@ public class Productos {
 	private String marca;
 	private String info;
 	private Integer precio;
-	
+	private String img;
 	
 	
 	public Integer getId() {
@@ -51,10 +51,17 @@ public class Productos {
 	public void setPrecio(Integer precio) {
 		this.precio = precio;
 	}
+	
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	@Override
 	public String toString() {
 		return "Productos [id=" + id + ", nombre=" + nombre + ", marca=" + marca + ", info=" + info + ", precio="
-				+ precio + "]";
+				+ precio + ", img=" + img + "]";
 	}
 	
 	
