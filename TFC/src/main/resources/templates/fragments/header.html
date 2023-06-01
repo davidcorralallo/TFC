@@ -1,7 +1,7 @@
 <nav>
 	<ul class="nav">
 		<li sec:authorize="hasAnyAuthority('ADMIN')">	
-        	<a th:href="@{/admin/}">Admin</a>
+        	<a th:href="@{/admin/usuarios}">Admin</a>
         </li>
         
         <li sec:authorize="isAnonymous() || hasAnyAuthority('USUARIO')">

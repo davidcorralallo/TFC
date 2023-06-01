@@ -43,7 +43,10 @@
                                 <td th:text="${u.apellido}"></td>
                                 <td th:text="${u.email}"></td>
                                 <td th:text="${u.usuario}"></td>
-                                <td th:text="${u.estatus}"></td>
+                                <td>
+                        			<span th:if="${u.estatus == 0}">Inactivo</span>
+                        			<span th:if="${u.estatus == 1}">Activo</span>
+                    			</td>
                             </tr> 
                         </tbody>
                     </table>

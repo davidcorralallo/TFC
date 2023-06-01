@@ -51,7 +51,11 @@
                                 <td th:text="${c.cambio}"></td>
                                 <td th:text="${c.traccion}"></td>
                                 <td th:text="${c.plazas}"></td>
-                                <td th:text="${#numbers.formatDecimal(c.precio, 0, 'POINT', 0, 'COMMA')} + ' €'"></td>
+                                <td th:text="${#numbers.formatDecimal(c.precio, 0, 'POINT', 0, 'COMMA')} + ' €'"></td> 
+                                <td>
+                                    <a th:href="@{/admin/coches/edit/{id} (id=${c.id}) }" class="boton-admin" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                                    <a th:href="@{/admin/coches/delete/{id} (id=${c.id}) }" th:onclick="return confirm('¿Estas seguro?')" class="boton-admin" role="button" title="Eliminar el registro."><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
                             </tr> 
                         </tbody>
                     </table>

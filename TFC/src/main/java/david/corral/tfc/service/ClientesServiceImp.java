@@ -1,10 +1,10 @@
 package david.corral.tfc.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import david.corral.tfc.entity.Clientes;
 import david.corral.tfc.repository.ClientesRepository;
 
@@ -24,5 +24,20 @@ public class ClientesServiceImp implements IClientesService {
 		System.out.println(cRepo.findAll());
 		return cRepo.findAll();
 	}
+
+	public Clientes findById(Integer idCliente) {
+		Optional <Clientes> idClienteEncontrado;
+		idClienteEncontrado = cRepo.findById(idCliente);
+		if(idClienteEncontrado.isPresent()) {
+			Clientes c = idClienteEncontrado.get();
+			return c;
+		}
+		return null;
+		
+	}
+
+	
+
+
 
 }
