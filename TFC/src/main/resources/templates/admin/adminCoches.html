@@ -24,26 +24,34 @@
     			<ul class="col-2 d-flex" th:insert="fragments/adminNav"></ul>
     			<!-- ======================================= -->
                 <div class="col-10">
-                    <h1 class="text-center">Productos</h1>
+                    <h1 class="text-center">COCHES</h1>
                     <table>
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Apellidos</th>
-                                <th>Email</th>
-                                <th>Usuario</th>
-                                <th>Estatus</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Potencia</th>
+                                <th>Motor</th>
+                                <th>Propulsion</th>
+                                <th>Cambio</th>
+                                <th>Traccion</th>
+                                <th>Plazas</th>
+                                <th>Precio</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="u: ${c}">
-                                <td th:text="${u.id}"></td>
-                                <td th:text="${u.nombre}"></td>
-                                <td th:text="${u.apellido}"></td>
-                                <td th:text="${u.email}"></td>
-                                <td th:text="${u.usuario}"></td>
-                                <td th:text="${u.estatus}"></td>
+                            <tr th:each="c: ${c}">
+                                <td th:text="${c.id}"></td>
+                                <td th:text="${c.marca}"></td>
+                                <td th:text="${c.modelo}"></td>
+                                <td th:text="${c.potencia}"></td>
+                                <td th:text="${c.motor}"></td>
+                                <td th:text="${c.propulsion}"></td>
+                                <td th:text="${c.cambio}"></td>
+                                <td th:text="${c.traccion}"></td>
+                                <td th:text="${c.plazas}"></td>
+                                <td th:text="${#numbers.formatDecimal(c.precio, 0, 'POINT', 0, 'COMMA')} + ' €'"></td>
                             </tr> 
                         </tbody>
                     </table>
