@@ -124,10 +124,10 @@ public class AdminController {
 	
 //	ADMIN - EMPLEADOS
 	@GetMapping("/empleados")
-    public String mostrarEmpelados (Empleados e, Concesionario con, Model model) {
+    public String mostrarEmpelados (Model model) {
 		List <Empleados> listaEmpleados = eServ.buscarTodos();
 		List <Concesionario> listaConcesionarios = conServ.buscarTodos();
-    	model.addAttribute("e", listaEmpleados);
+    	model.addAttribute("emp", listaEmpleados);
     	model.addAttribute("con", listaConcesionarios);
 		return "/admin/adminEmpleados";
     }

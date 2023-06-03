@@ -24,7 +24,7 @@
     			<ul class="col-2 d-flex" th:insert="fragments/adminNav"></ul>
     			<!-- ======================================= -->
                 <div class="col-10">
-                    <h1 class="text-center">Productos</h1>
+                    <h1 class="text-center">Empleados</h1>
                     <table>
                         <thead>
                             <tr>
@@ -38,14 +38,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="emp: ${e}">
+                            <tr th:each="emp: ${emp}" >
                                 <td th:text="${emp.id}"></td>
                                 <td th:text="${emp.nombre}"></td>
                                 <td th:text="${emp.apellido}"></td>
                                 <td th:text="${emp.puesto}"></td>
                                 <td th:text="${#numbers.formatDecimal(emp.salario, 0, 'POINT', 0, 'COMMA')} + ' €'"></td> 
                                 <td th:text="${emp.fecha_contrato}"></td>
-                                <td th:text="${con.id}"></td>
+								<td>
+        							<span th:each="con : ${con}" th:if="${con.id == emp.idConcesionario}" th:text="${con.nombre}"></span>
+    							</td>
                                 <td class="opciones">
                                     <a th:href="@{/admin/empleados/edit/{id} (id=${emp.id}) }" class="boton-admin" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
                                     <a th:href="@{/admin/empleados/delete/{id} (id=${emp.id}) }" th:onclick="return confirm('¿Estas seguro?')" class="boton-admin" role="button" title="Eliminar el registro."><i class="fa-solid fa-trash-can"></i></a>
