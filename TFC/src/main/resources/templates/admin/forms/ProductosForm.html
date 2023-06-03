@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c777ed83a5.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/adminForm.css">
+    <link rel="stylesheet" href="/css/Header.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Coruña Automoción | Admin</title>
+</head>
+<body>
+	<!-- |header| 				   	 			  |header|	  -->
+    <header th:insert="fragments/header"></header>
+    <!-- ====================================================== -->
+	<main>
+	<section>
+		<form class="col" th:action="@{/admin/productos/save}" method="post" th:object="${p}">
+			<h1 class="col text-center">Editar Producto</h1>
+			<input type="hidden" th:field="*{id}" name="id">
+			<div class="row">
+				<div class="col-6">
+					<label for="nombre">Nombre</label>
+                	<input type="text" class="form-control" id="nombre" name="nombre" th:field = *{nombre} placeholder="Nombre" required="required">
+					
+				</div>
+				<div class="col-6">
+					<label for="marca">Marca</label>
+                	<input type="text" class="form-control" id="marca" name="marca" th:field = *{marca} placeholder="Marca" required="required">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-6">
+					<label for="Info">Info</label>
+					<input type="text" class="form-control" id="info" name="info" th:field = *{info} placeholder="Info" required="required">
+				</div>
+				<div class="col-6">
+					<label for="precio">Precio</label>
+                	<input type="number" class="form-control" id="precio" name="precio" th:field = *{precio} placeholder="precio" required="required">
+				</div>
+			</div>
+			
+			<div class="row last">
+				<div class="col">
+					<label for="img">URL de la Imagen</label>
+                	<input type="text" class="form-control" id="img" name="img" th:field = *{img} placeholder="URL Imagen" required="required">
+				</div>
+			</div>
+			
+			<div class="centrado">
+				<button class="boton0"><small>Guardar cambios</small></button>
+			</div>
+		</form>
+		</section>
+	</main>
+    <!-- |footer| 				   	 			  |footer|	  -->
+    <footer class="row d-flex" th:insert="fragments/footer"></footer>
+    <!-- ====================================================== -->
+</body>
+</html>

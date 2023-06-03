@@ -34,4 +34,8 @@ public class ProductosServiceImp implements ICochesService {
 		return null;
 	}
 
+	public void save(Productos producto) {
+		pRepo.save(producto);
+	}
+
 }

@@ -20,6 +20,7 @@ import david.corral.tfc.enums.Cambio;
 import david.corral.tfc.enums.Combustible;
 import david.corral.tfc.enums.Marcas;
 import david.corral.tfc.enums.Propulsion;
+import david.corral.tfc.enums.Puesto;
 import david.corral.tfc.enums.Traccion;
 import david.corral.tfc.service.ClientesServiceImp;
 import david.corral.tfc.service.CochesServiceImp;
@@ -76,7 +77,7 @@ public class AdminController {
     public String editProducto (@PathVariable("id") int idProducto, Model model) {
     	Productos producto = pServ.findById(idProducto);
     	model.addAttribute("p", producto);
-		return "/admin/productosForm";
+		return "/admin/forms/ProductosForm";
     }
 	
 	@GetMapping("/productos/delete/{id}")
@@ -86,7 +87,12 @@ public class AdminController {
         return "redirect:/admin/productos";
     }
 	
-	
+	@PostMapping("/productos/save")
+    public String guardar(Productos producto) {
+        pServ.save(producto);
+        System.out.println(producto);
+        return "redirect:/admin/productos";
+    }
 	//	ADMIN - COCHES
 	@GetMapping("/coches")
     public String mostrarCoches (Coches c, Model model) {
@@ -135,8 +141,11 @@ public class AdminController {
 	@GetMapping("/empleados/edit/{id}")
     public String editEmpleado (@PathVariable("id") int idEmpleado, Model model) {
     	Empleados empleado = eServ.findById(idEmpleado);
+		List <Concesionario> listaConcesionarios = conServ.buscarTodos();
     	model.addAttribute("e", empleado);
-		return "/admin/empleadosForm";
+    	model.addAttribute("puesto",Puesto.values());
+    	model.addAttribute("con", listaConcesionarios);
+		return "/admin/forms/EmpleadoForm";
     }
 	
 	@GetMapping("/empleados/delete/{id}")
@@ -144,5 +153,12 @@ public class AdminController {
         System.out.println("Borrado del empleado: " + idEmpleado);
         eServ.eliminarEmpleado(idEmpleado);
         return "redirect:/admin/empleados";
+    }
+	
+	@PostMapping("/empleados/save")
+    public String guardar(Empleados empleado) {
+        eServ.save(empleado);
+        System.out.println(empleado);
+        return "redirect:/admin/coches";
     }
 }

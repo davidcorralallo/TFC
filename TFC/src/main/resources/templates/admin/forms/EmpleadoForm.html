@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c777ed83a5.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/adminForm.css">
+    <link rel="stylesheet" href="/css/Header.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Coruña Automoción | Admin</title>
+</head>
+<body>
+	<!-- |header| 				   	 			  |header|	  -->
+    <header th:insert="fragments/header"></header>
+    <!-- ====================================================== -->
+	<main>
+	<section>
+		<form class="col" th:action="@{/admin/coches/save}" method="post" th:object="${e}">
+			<h1 class="col text-center">Editar Empleado</h1>
+			<input type="hidden" th:field="*{id}" name="id">
+			<div class="row">
+				<div class="col-6">
+					<label for="nombre">Nombre</label>
+                	<input type="text" class="form-control" id="nombre" name="nombre" th:field = *{nombre} placeholder="Nombre" required="required">
+					
+				</div>
+				<div class="col-6">
+					<label for="apellido">Apellido</label>
+                	<input type="text" class="form-control" id="apellido" name="apellido" th:field = *{apellido} placeholder="Apellido" required="required">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-6">
+					<label for="puesto">Puesto</label>
+					<select id="puesto" name="puesto">
+    					<option th:each="p : ${puesto}"
+            				th:text="${p}"
+            				th:value="${p}"
+            				th:field="*{puesto}">
+            			</option>
+					</select>
+				</div>
+				<div class="col-6">
+					<label for="salario">Salario</label>
+                	<input type="number" class="form-control" id="salario" name="salario" th:field = *{salario} placeholder="Salario" required="required">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-6">
+					<label for="fecha_contrato">Fecha Contrato</label>
+                	<input type="date" class="form-control" id="fecha_contrato" name="fecha_contrato" th:field = *{fecha_contrato} placeholder="Fecha del contrato" required="required">
+					
+				</div>
+				<div class="col-6">
+					<label for="idConcesionario">Concesionario</label>
+                	<input th:each="con : ${con}" th:if="${con.id == emp.idConcesionario}" th:text="${con.nombre}"></input>
+                	<select id="idConcesionario" name="idConcesionario">
+    					<option th:each="e : ${e}"
+            				th:text="${e}"
+            				th:value="${e}"
+            				th:field="*{con.id}">
+            			</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="centrado">
+				<button class="boton0"><small>Guardar cambios</small></button>
+			</div>
+		</form>
+		</section>
+	</main>
+    <!-- |footer| 				   	 			  |footer|	  -->
+    <footer class="row d-flex" th:insert="fragments/footer"></footer>
+    <!-- ====================================================== -->
+</body>
+</html>

@@ -37,4 +37,8 @@ public class EmpleadoServiceImp implements IEmpleadosService {
 		return null;
 	}
 
+	public void save(Empleados empleado) {
+		eRepo.save(empleado);
+	}
+
 }
