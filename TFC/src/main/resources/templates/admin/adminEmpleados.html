@@ -38,17 +38,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="e: ${e}">
-                                <td th:text="${e.id}"></td>
-                                <td th:text="${e.nombre}"></td>
-                                <td th:text="${e.apellido}"></td>
-                                <td th:text="${e.puesto}"></td>
-                                <td th:text="${#numbers.formatDecimal(e.salario, 0, 'POINT', 0, 'COMMA')} + ' €'"></td> 
-                                <td th:text="${e.fecha_contrato}"></td>
-                                <td th:text="${e.idConcesionario}"></td>
+                            <tr th:each="emp: ${e}">
+                                <td th:text="${emp.id}"></td>
+                                <td th:text="${emp.nombre}"></td>
+                                <td th:text="${emp.apellido}"></td>
+                                <td th:text="${emp.puesto}"></td>
+                                <td th:text="${#numbers.formatDecimal(emp.salario, 0, 'POINT', 0, 'COMMA')} + ' €'"></td> 
+                                <td th:text="${emp.fecha_contrato}"></td>
+                                <td th:text="${con.id}"></td>
                                 <td class="opciones">
-                                    <a th:href="@{/admin/productos/edit/{id} (id=${p.id}) }" class="boton-admin" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
-                                    <a th:href="@{/admin/productos/delete/{id} (id=${p.id}) }" th:onclick="return confirm('¿Estas seguro?')" class="boton-admin" role="button" title="Eliminar el registro."><i class="fa-solid fa-trash-can"></i></a>
+                                    <a th:href="@{/admin/empleados/edit/{id} (id=${emp.id}) }" class="boton-admin" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
+                                    <a th:href="@{/admin/empleados/delete/{id} (id=${emp.id}) }" th:onclick="return confirm('¿Estas seguro?')" class="boton-admin" role="button" title="Eliminar el registro."><i class="fa-solid fa-trash-can"></i></a>
                                 </td>
                             </tr> 
                         </tbody>

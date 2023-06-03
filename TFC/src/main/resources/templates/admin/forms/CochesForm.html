@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c777ed83a5.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/adminForm.css">
+    <link rel="stylesheet" href="/css/Header.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Coruña Automoción | Admin</title>
+</head>
+<body>
+	<!-- |header| 				   	 			  |header|	  -->
+    <header th:insert="fragments/header"></header>
+    <!-- ====================================================== -->
+	<main>
+	<section>
+		<form class="col" th:action="@{/admin/coches/guardar}" method="post" th:object="${c}">
+			<h1 class="col text-center">Editar Coche</h1>
+			
+			<div class="row">
+				<div class="col-6">
+					<label for="marca">Marca</label><br>
+					<select id="marca" name="marca">
+    					<option th:each="marcas : ${marca}"
+            				th:text="${marcas}"
+            				th:value="${marcas}"
+            				th:field="*{marca}">
+            			</option>
+					</select>
+					
+				</div>
+				<div class="col-6">
+					<label for="modelo">Modelo</label>
+                	<input type="text" class="form-control" id="modelo" name="modelo" th:field = *{modelo} placeholder="Modelo" required="required">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-6">
+					<label for="potencia">Potencia</label>
+                	<input type="text" class="form-control" id="potencia" name="potencia" th:field = *{potencia} placeholder="Potencia" required="required">
+				</div>
+				<div class="col-6">
+					<label for="modelo">Motor</label>
+                	<input type="text" class="form-control" id="motor" name="motor" th:field = *{motor} placeholder="Motor" required="required">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-6">
+					<label for="propulsion">Propulsion</label>
+                	<input type="text" class="form-control" id="propulsion" name="propulsion" th:field = *{propulsion} placeholder="Propulsion" required="required">
+				</div>
+				<div class="col-6">
+					<label for="cambio">Cambio</label><br>
+					<select id="cambio" name="cambio">
+    					<option th:each="cambios : ${cambio}"
+            				th:text="${cambios}"
+            				th:value="${cambios}"
+            				th:field="*{cambio}">
+            			</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-6">
+					<label for="traccion">Tracción</label><br>
+					<select id="traccion" name="traccion">
+    					<option th:each="tracciones : ${traccion}"
+            				th:text="${tracciones}"
+            				th:value="${tracciones}"
+            				th:field="*{traccion}">
+            			</option>
+					</select>
+				</div>
+				<div class="col-6">
+					<label for="combustible">Combustible</label><br>
+					<select id="combustible" name="combustible">
+    					<option th:each="combustibles : ${combustible}"
+            				th:text="${combustibles}"
+            				th:value="${combustibles}"
+            				th:field="${combustible}">
+            			</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-6">
+					<label for="consumoCiudad">Consumo en Ciudad</label>
+                	<input type="text" class="form-control" id="consumoCiudad" name="consumoCiudad" th:field = *{consumoCiudad} placeholder="Consumo en Ciudad" required="required">
+				</div>
+				<div class="col-6">
+					<label for="consumoAutopista">Consumo en Autopista</label>
+                	<input type="text" class="form-control" id="consumoAutopsita" name="consumoAutopista" th:field = *{consumoAutopista} placeholder="Consumo en Autopista" required="required">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-6">
+					<label for="plazas">Plazas</label>
+                	<input type="text" class="form-control" id="plazas" name="plazas" th:field = *{plazas} placeholder="Plazas" required="required">
+				</div>
+				<div class="col-6">
+					<label for="precio">Precio</label>
+                	<input type="text" class="form-control" id="precio" name="precio" th:field = *{precio} placeholder="Precio" required="required">
+				</div>
+			</div>
+			
+			<div class="row last">
+				<div class="col">
+					<label for="precio">URL de la Imagen</label>
+                	<input type="text" class="form-control" id="precio" name="precio" th:field = *{precio} placeholder="Precio" required="required">
+				</div>
+			</div>
+			
+		</form>
+		</section>
+	</main>
+    <!-- |footer| 				   	 			  |footer|	  -->
+    <footer class="row d-flex" th:insert="fragments/footer"></footer>
+    <!-- ====================================================== -->
+</body>
+</html>

@@ -18,6 +18,7 @@ public class EmpleadoServiceImp implements IEmpleadosService {
 	EmpleadosRepository eRepo;
 	
 	public List<Empleados> buscarTodos() {
+		System.out.println(eRepo.findAll());
 		return eRepo.findAll();
 	}
 

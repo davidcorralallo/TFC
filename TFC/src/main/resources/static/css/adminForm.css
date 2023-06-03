@@ -1,0 +1,61 @@
+@charset "ISO-8859-1";
+
+main{
+	padding-bottom:10%;
+	background-color: #28242c;	
+}
+
+section{
+	width: 80%;
+	display: flex;
+	padding-top: 5%;
+}
+
+form {
+	background-color: white;
+	margin-left: 12.5%;
+	border-radius: 15px;
+}
+
+h1 {
+	font-size: 3vw;
+	color:rgb(255, 0, 100);
+	padding-top: 5%;
+}
+
+.col-6 {
+	padding-top: 5% !important;
+	height: 10vw;
+}
+
+label {
+	font-size: 1.5vw;
+	text-align: center;
+	width: 80%;
+	color:rgb(255, 0, 100);
+}
+
+input {
+	width: 80% !important;
+	background-color:#28242c !important;
+	color: white !important;	
+	height: 50% !important;
+	font-size: 1vw !important;
+}
+
+
+
+select {
+	width: 80%;
+	background-color:#28242c;
+	color: white;
+	height: 50%;
+	border-radius: 5px;
+	font-size: 1vw !important;
+} 
+
+.last div{
+	padding-top: 5% !important;
+	display: flex;
+	justify-content: center;
+}

@@ -3,6 +3,7 @@ package david.corral.tfc.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,10 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import david.corral.tfc.entity.Clientes;
 import david.corral.tfc.entity.Coches;
+import david.corral.tfc.entity.Concesionario;
 import david.corral.tfc.entity.Empleados;
 import david.corral.tfc.entity.Productos;
+import david.corral.tfc.enums.Cambio;
+import david.corral.tfc.enums.Combustible;
+import david.corral.tfc.enums.Marcas;
+import david.corral.tfc.enums.Traccion;
 import david.corral.tfc.service.ClientesServiceImp;
 import david.corral.tfc.service.CochesServiceImp;
+import david.corral.tfc.service.ConcesionarioServiceImp;
 import david.corral.tfc.service.EmpleadoServiceImp;
 import david.corral.tfc.service.ProductosServiceImp;
 
@@ -33,6 +40,9 @@ public class AdminController {
 	
 	@Autowired
 	EmpleadoServiceImp eServ;
+	
+	@Autowired
+	ConcesionarioServiceImp conServ;
 	
 	
 	//	ADMIN - USUARIOS
@@ -88,7 +98,11 @@ public class AdminController {
     public String editCoche (@PathVariable("id") int idCoche, Model model) {
     	Coches coche = coServ.findById(idCoche);
     	model.addAttribute("c", coche);
-		return "/admin/cochesForm";
+    	model.addAttribute("marca",Marcas.values());
+    	model.addAttribute("cambio",Cambio.values());
+    	model.addAttribute("combustible",Combustible.values());
+    	model.addAttribute("traccion",Traccion.values());
+		return "/admin/forms/CochesForm";
     }
 	
 	@GetMapping("/coches/delete/{id}")
@@ -101,10 +115,11 @@ public class AdminController {
 	
 //	ADMIN - EMPLEADOS
 	@GetMapping("/empleados")
-    public String mostrarEmpelados (Empleados e, Model model) {
-		List <Empleados> lista = eServ.buscarTodos();
-    	model.addAttribute("e", lista);
-    	System.out.println(lista);
+    public String mostrarEmpelados (Empleados e, Concesionario con, Model model) {
+		List <Empleados> listaEmpleados = eServ.buscarTodos();
+		List <Concesionario> listaConcesionarios = conServ.buscarTodos();
+    	model.addAttribute("e", listaEmpleados);
+    	model.addAttribute("con", listaConcesionarios);
 		return "/admin/adminEmpleados";
     }
 	

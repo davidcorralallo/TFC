@@ -23,7 +23,6 @@ public class Concesionario {
 	private Integer id;
 	private String nombre;
 	private String localizacion;
-	private Integer id_empleado;
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "cochesconcesionario", 
     joinColumns = @JoinColumn (name= "idConcesionario"), 
@@ -49,12 +48,6 @@ public class Concesionario {
 	public void setLocalizacion(String localizacion) {
 		this.localizacion = localizacion;
 	}
-	public Integer getId_empleado() {
-		return id_empleado;
-	}
-	public void setId_empleado(Integer id_empleado) {
-		this.id_empleado = id_empleado;
-	}
 	public List<Coches> getCoches() {
 		return coches;
 	}
@@ -65,8 +58,7 @@ public class Concesionario {
 	
 	@Override
 	public String toString() {
-		return "Concesionario [id=" + id + ", nombre=" + nombre + ", localizacion=" + localizacion + ", id_empleado="
-				+ id_empleado + ", coches=" + coches + "]";
+		return "Concesionario [id=" + id + ", nombre=" + nombre + ", localizacion=" + localizacion + ", coches=" + coches + "]";
 	}
 	
 	
