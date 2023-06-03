@@ -20,9 +20,9 @@
     <!-- ====================================================== -->
 	<main>
 	<section>
-		<form class="col" th:action="@{/admin/coches/guardar}" method="post" th:object="${c}">
+		<form class="col" th:action="@{/admin/coches/save}" method="post" th:object="${c}">
 			<h1 class="col text-center">Editar Coche</h1>
-			
+			<input type="hidden" th:field="*{id}" name="id">
 			<div class="row">
 				<div class="col-6">
 					<label for="marca">Marca</label><br>
@@ -44,7 +44,7 @@
 			<div class="row">
 				<div class="col-6">
 					<label for="potencia">Potencia</label>
-                	<input type="text" class="form-control" id="potencia" name="potencia" th:field = *{potencia} placeholder="Potencia" required="required">
+                	<input type="number" class="form-control" id="potencia" name="potencia" th:field = *{potencia} placeholder="Potencia" required="required">
 				</div>
 				<div class="col-6">
 					<label for="modelo">Motor</label>
@@ -55,7 +55,13 @@
 			<div class="row">
 				<div class="col-6">
 					<label for="propulsion">Propulsion</label>
-                	<input type="text" class="form-control" id="propulsion" name="propulsion" th:field = *{propulsion} placeholder="Propulsion" required="required">
+						<select id="propulsion" name="propulsion">
+    					<option th:each="turbo : ${propulsion}"
+            				th:text="${turbo}"
+            				th:value="${turbo}"
+            				th:field="*{propulsion}">
+            			</option>
+					</select>
 				</div>
 				<div class="col-6">
 					<label for="cambio">Cambio</label><br>
@@ -103,24 +109,26 @@
 				</div>
 			</div>
 			
-			<div class="row">
+			<div class="row inputs">
 				<div class="col-6">
 					<label for="plazas">Plazas</label>
-                	<input type="text" class="form-control" id="plazas" name="plazas" th:field = *{plazas} placeholder="Plazas" required="required">
+                	<input type="number" class="form-control" id="plazas" name="plazas" th:field = *{plazas} placeholder="Plazas" required="required">
 				</div>
 				<div class="col-6">
 					<label for="precio">Precio</label>
-                	<input type="text" class="form-control" id="precio" name="precio" th:field = *{precio} placeholder="Precio" required="required">
+                	<input type="number" class="form-control" id="precio" name="precio" th:field = *{precio} placeholder="Precio" required="required">
 				</div>
 			</div>
 			
 			<div class="row last">
 				<div class="col">
-					<label for="precio">URL de la Imagen</label>
-                	<input type="text" class="form-control" id="precio" name="precio" th:field = *{precio} placeholder="Precio" required="required">
+					<label for="img">URL de la Imagen</label>
+                	<input type="text" class="form-control" id="img" name="img" th:field = *{img} placeholder="URL Imagen" required="required">
 				</div>
 			</div>
-			
+			<div class="centrado">
+				<button class="boton0"><small>Guardar cambios</small></button>
+			</div>
 		</form>
 		</section>
 	</main>

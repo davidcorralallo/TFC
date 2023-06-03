@@ -54,8 +54,28 @@ select {
 	font-size: 1vw !important;
 } 
 
-.last div{
-	padding-top: 5% !important;
+.last {
+	padding-top: 5%;
+	padding-bottom: 10%;
+	margin-left: 12.5% !important;
+}
+
+.centrado {
 	display: flex;
 	justify-content: center;
+	width: 100%;
+}
+
+.boton0 {
+    background: rgb(255, 0, 100);
+    border-radius: 999px;
+    box-shadow: rgb(255, 0, 100) 0 10px 20px -10px;
+    color: #FFFFFF;
+    font-size: 1.5vw;
+    font-weight: 700;
+    line-height: 2vw;
+    opacity: 1;
+    padding: 1vw 2vw;
+    border: 0;
+    margin-bottom:7.5%;
 }

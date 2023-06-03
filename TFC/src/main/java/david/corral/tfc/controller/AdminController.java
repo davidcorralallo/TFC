@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import david.corral.tfc.entity.Clientes;
@@ -18,6 +19,7 @@ import david.corral.tfc.entity.Productos;
 import david.corral.tfc.enums.Cambio;
 import david.corral.tfc.enums.Combustible;
 import david.corral.tfc.enums.Marcas;
+import david.corral.tfc.enums.Propulsion;
 import david.corral.tfc.enums.Traccion;
 import david.corral.tfc.service.ClientesServiceImp;
 import david.corral.tfc.service.CochesServiceImp;
@@ -102,6 +104,7 @@ public class AdminController {
     	model.addAttribute("cambio",Cambio.values());
     	model.addAttribute("combustible",Combustible.values());
     	model.addAttribute("traccion",Traccion.values());
+    	model.addAttribute("propulsion",Propulsion.values());
 		return "/admin/forms/CochesForm";
     }
 	
@@ -112,6 +115,12 @@ public class AdminController {
         return "redirect:/admin/coches";
     }
 	
+	@PostMapping("/coches/save")
+    public String guardar(Coches coche) {
+        coServ.save(coche);
+        System.out.println(coche);
+        return "redirect:/admin/coches";
+    }
 	
 //	ADMIN - EMPLEADOS
 	@GetMapping("/empleados")

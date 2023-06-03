@@ -34,4 +34,9 @@ public class CochesServiceImp implements ICochesService {
 		return null;
 	}
 
+	public void save(Coches coche) {
+        System.out.println(coche);
+		cRepo.save(coche);
+	}
+
 }

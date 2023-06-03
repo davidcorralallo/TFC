@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import david.corral.tfc.enums.Cambio;
 import david.corral.tfc.enums.Combustible;
 import david.corral.tfc.enums.Marcas;
+import david.corral.tfc.enums.Propulsion;
 import david.corral.tfc.enums.Traccion;
 
 @Entity
@@ -25,7 +26,8 @@ public class Coches {
 	private String modelo;
 	private Integer potencia;
 	private String motor;
-	private String propulsion;
+	@Enumerated(EnumType.STRING)
+	private Propulsion propulsion;
 	@Enumerated(EnumType.STRING)
 	private Cambio cambio;
 	@Enumerated(EnumType.STRING)
@@ -107,10 +109,11 @@ public class Coches {
 	public void setMotor(String motor) {
 		this.motor = motor;
 	}
-	public String getPropulsion() {
+	
+	public Propulsion getPropulsion() {
 		return propulsion;
 	}
-	public void setPropulsion(String propulsion) {
+	public void setPropulsion(Propulsion propulsion) {
 		this.propulsion = propulsion;
 	}
 	public Double getConsumoCiudad() {
@@ -127,15 +130,11 @@ public class Coches {
 	}
 	@Override
 	public String toString() {
-		return "Coches [id=" + id + ", marca=" + marca + ", modelo=" + modelo + ", potencia=" + potencia
-				+ ", motor=" + motor + ", propulsion=" + propulsion + ", cambio=" + cambio
-				+ ", traccion=" + traccion + ", combustible=" + combustible
-				+ ", consumoCiudad=" + consumoCiudad + ", consumoAutopista=" + consumoAutopista
-				+ ", plazas=" + plazas + ", precio=" + precio + ", img=" + img + "]";
+		return "Coches [id=" + id + ", marca=" + marca + ", modelo=" + modelo + ", potencia=" + potencia + ", motor="
+				+ motor + ", propulsion=" + propulsion + ", cambio=" + cambio + ", traccion=" + traccion
+				+ ", combustible=" + combustible + ", consumoCiudad=" + consumoCiudad + ", consumoAutopista="
+				+ consumoAutopista + ", plazas=" + plazas + ", precio=" + precio + ", img=" + img + "]";
 	}
-	
-	
-	
 	
 	
 }
