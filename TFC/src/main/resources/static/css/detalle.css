@@ -1,1 +1,127 @@
 @charset "ISO-8859-1";
+
+
+
+/* Estilos para el contenido principal */
+main {
+    background-color: #28242c;
+    color: white;
+    text-align: center;
+    padding-top: 2.5%;
+    padding-bottom: 7.5%;
+}
+
+/* Estilos para las secciones */
+section {
+    width: 100%;
+    border-radius: 15px;
+    display: flex !important;
+    justify-content: center;
+}
+
+/* Estilos para los artículos */
+article {
+    border: solid white 0.25vw;
+    width: 80%;
+    border-radius: 15px;
+   padding-bottom: 5%;
+}
+
+/* Estilos para las secciones superiores */
+.top {
+    display: flex !important;
+    justify-content: center;
+}
+
+/* Estilos para los encabezados */
+.top h3 {
+    margin-top: 2.5%;
+    font-size: 2vw;
+}
+
+/* Estilos para el modelo */
+.modelo {
+    color: rgb(255, 0, 100);
+}
+
+/* Estilos para la imagen del detalle */
+.imgDetalle {
+    height: 30vw;
+    border-radius: 2vw;
+    margin-top: 5%;
+}
+
+/* Estilos para la información */
+.informacion img {
+    width: 3.5vw !important;
+}
+
+/* Estilos para las filas */
+.row {
+    display: flex !important;
+    justify-content: center;
+}
+
+/* Estilos para los recuadros */
+.recuadro {
+    width: 10vw;
+    height: 12.5vw;
+    background-color: white;
+    color: #28242c;
+    border-radius: 1vw;
+    display: flex !important;
+    align-content: center !important;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Estilos para los elementos dentro de los recuadros */
+.recuadro div {
+    height: 5vw;
+    display: flex !important;
+    align-content: center;
+    justify-content: center;
+}
+
+/* Estilos para los encabezados dentro de los recuadros */
+.recuadro h3 {
+    font-size: 1.5vw;
+    font-weight: 400;
+}
+
+/* Estilos para las columnas */
+.col-4 {
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 10%;
+    height: 10vw;
+}
+
+/* Estilos para los botones */
+.compra {
+	display: flex;
+	justify-content: center;
+	margin-top: 5%;
+}
+
+.boton2 {
+    background: rgb(255, 0, 100);
+    border-radius: 999px;
+    box-shadow: rgb(255, 0, 100) 0 10px 20px -10px;
+    color: #FFFFFF;
+    font-size: 1.5vw;
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    padding: 1vw 2vw;
+    border: 0;
+    margin-bottom:7.5%;
+    margin-top:10%;
+    display: flex;
+    justify-content: center;
+    margin: 2vw;
+}
+
+a {
+    text-decoration:none !important;
+}

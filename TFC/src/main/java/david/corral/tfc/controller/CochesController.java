@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import david.corral.tfc.entity.Coches;
+import david.corral.tfc.entity.Productos;
 import david.corral.tfc.service.CochesServiceImp;
 
 @Controller
@@ -26,10 +28,13 @@ public class CochesController {
 		return "/coches/lista";
     }
 	
-	@GetMapping("/detalle")
-	public String mostrarDetalle (Coches c, Model model) {
+	@GetMapping("/detalle/{id}")
+    public String mostarDetalle (@PathVariable("id") int idCoche, Model model) {
+    	Coches coche = cServ.findById(idCoche);
+    	model.addAttribute("c", coche);
 		return "/coches/detalle";
-	}
+    }
+	
 	
 	
 }

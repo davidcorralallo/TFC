@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/c777ed83a5.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/coches.css">
+    <link rel="stylesheet" href="/css/detalle.css">
     <link rel="stylesheet" href="/css/Header.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -19,79 +19,94 @@
     <header th:insert="fragments/header"></header>
     <!-- ====================================================== -->
     <main>
-    	<section>
+    	<section th:object="${c}">
+    	<article>
+    	<input type="hidden" th:field="${id}" name="id">
         	<div class="col">
-        		<div class="row">
+        		<div class="row top">
         			<img th:src="${c.img}" class="imgDetalle">
         		</div>
-        		<div class="row">
-        			<h3 th:text="${c.marca} + ${c.precio}"></h3>
+        		<div class="row top">
+        			<h3 class="modelo" th:text="${c.marca} + ' ' + ${c.modelo}"></h3>
+        		</div>
+        		<div class="row top">
+        			<h3 th:text="${#numbers.formatDecimal(c.precio, 0, 'POINT', 0, 'COMMA')} + ' €'"></h3>
         		</div>
         		
-        		
-        		<div class="row">	<!--  1º Fila  -->
-        			<div class="col"> <!--  Motor  -->
-						<div class="row">
-							<img src="/img/icons/Producto/Motor.png">
-						</div>
-						<div class="row">
-							<h3 class="row" th:text="${c.motor}"></h3>
-							<h3 class="row" th:text="${c.propulsion}"></h3>
-						</div>
-					</div>
-					
-        			<div class="col"> <!--  Potencia  -->
-						<div class="row">
-							<img src="/img/icons/Producto/Velocimetro.png">
-						</div>
-						<div class="row">
-							<h3 class="row" th:text="${c.potencia}"></h3>
+        		<div class="row informacion">	<!--  1º Fila  -->
+        			<div class="col-4"> <!--  Motor  -->
+        				<div class="recuadro">
+							<div class="row">
+								<img src="/img/icons/Producto/Motor.png">
+							</div>
+							<div class="row">
+								<h3 class="row" th:text="${c.motor} + ' ' +  ${c.propulsion}"></h3>
+							</div>
 						</div>
 					</div>
 					
-        			<div class="col"> <!--  Cambio -->
-						<div class="row">
-							<img src="/img/icons/Producto/Cambio.png">
+        			<div class="col-4"> <!--  Potencia  -->
+        				<div class="recuadro">
+							<div class="row">
+								<img src="/img/icons/Producto/Velocimetro.png">
+							</div>
+							<div class="row">
+								<h3 class="row" th:text="${c.potencia} + ' hp'"></h3>
+							</div>
 						</div>
-						<div class="row">
-							<h3 class="row" th:text="${c.cambio}"></h3>
+					</div>
+					
+        			<div class="col-4"> <!--  Cambio -->
+        				<div class="recuadro">
+							<div class="row">
+								<img src="/img/icons/Producto/Cambio.png">
+							</div>
+							<div class="row">
+								<h3 class="row" th:text="${c.cambio}"></h3>
+							</div>
 						</div>
 					</div>
         		</div>  <!--  Fin 1º Fila  -->
         		
         		
-        		<div class="row">	<!--  2º Fila  -->
-        			<div class="col"> <!--  Traccion  -->
-						<div class="row">
-							<img src="/img/icons/Producto/Traccion.png">
-						</div>
-						<div class="row">
-							<h3 class="row" th:text="${c.traccion}"></h3>
+        		<div class="row informacion">	<!--  2º Fila  -->
+        			<div class="col-4"> <!--  Traccion  -->
+        				<div class="recuadro">
+        					<div class="row">
+								<img src="/img/icons/Producto/Traccion.png">
+							</div>
+							<div class="row">
+								<h3 class="row" th:text="${c.traccion}"></h3>
+							</div>
+        				</div>
+					</div>
+					
+        			<div class="col-4"> <!--  Combustible  -->
+        				<div class="recuadro">
+							<div class="row">
+								<img src="/img/icons/Producto/Combustible.png">
+							</div>
+							<div class="row">
+								<h3 class="row" th:text="${c.combustible}"></h3>
+							</div>
 						</div>
 					</div>
 					
-        			<div class="col"> <!--  Combustible  -->
-						<div class="row">
-							<img src="/img/icons/Producto/Combustible.png">
-						</div>
-						<div class="row">
-							<h3 class="row" th:text="${c.combustible}"></h3>
-						</div>
-					</div>
-					
-        			<div class="col"> <!--  Consumo -->
-						<div class="row">
-							<img src="/img/icons/Producto/Combustible.png">
-						</div>
-						<div class="row">
-							<h3 class="row" th:text="${c.consumoCiudad}"></h3>
-							<h3 class="row" th:text="${c.consumoAutopista}"></h3>
+        			<div class="col-4"> <!--  Consumo -->
+        				<div class="recuadro">
+							<div class="row">
+								<img src="/img/icons/Producto/consumo.png">
+							</div>
+							<div class="row">
+								<h3 class="row" th:text="${c.consumoCiudad} + 'Ciudad' + '/'"></h3>
+								<h3 class="row" th:text="${c.consumoAutopista} + 'autopista'"></h3>
+							</div>
 						</div>
 					</div>
         		</div>  <!--  Fin 2º Fila  -->
-        		
-        		
+        		<div class="compra"><a><button class="boton2">Comprar</button></a></div>
         	</div>
+        	</article>
        	</section>
     </main>
     <!-- |footer| 				   	 	         |footer|	  -->
