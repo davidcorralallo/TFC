@@ -3,6 +3,7 @@ package david.corral.tfc.enums;
 public enum Marcas {
 
 	Audi,
+	AstonMartin,
 	Bmw,
 	Cupra,
 	Dacia,
@@ -22,7 +23,7 @@ public enum Marcas {
 	Mini,
 	Nissan,
 	Peugeot,
-	Porche,
+	Porsche,
 	Renault,
 	Seat,
 	Tesla,

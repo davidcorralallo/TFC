@@ -43,7 +43,16 @@
         			<div class="col-4"><a><button class="boton2">Comprar</button></a></div>
         		</div>
         	</article>
-        </section>
+        	
+    		<div class="pagination">
+    		    <ul class="pagination-list">
+    		        <li th:each="pageNum : ${#numbers.sequence(0, totalPages-1)}" th:class="${page == pageNum ? 'active' : ''}">
+    		            <a class="numeros" th:href="@{/coches(page=${pageNum})}" th:text="${pageNum + 1}"></a>
+    		        </li>
+    		    </ul>
+    		</div>
+
+        </section> 
     </main>
     <!-- |footer| 				   	 	         |footer|	  -->
     <footer class="row d-flex" th:insert="fragments/footer"></footer>

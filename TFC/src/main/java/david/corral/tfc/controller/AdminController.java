@@ -3,6 +3,8 @@ package david.corral.tfc.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import david.corral.tfc.entity.Clientes;
 import david.corral.tfc.entity.Coches;
@@ -88,12 +91,13 @@ public class AdminController {
     }
 	
 	@PostMapping("/productos/save")
-    public String guardar(Productos producto) {
+    public String guardarProducto(Productos producto) {
         pServ.save(producto);
         System.out.println(producto);
         return "redirect:/admin/productos";
     }
 	//	ADMIN - COCHES
+	
 	@GetMapping("/coches")
     public String mostrarCoches (Coches c, Model model) {
 		List <Coches> lista = coServ.buscarTodos();
@@ -122,7 +126,7 @@ public class AdminController {
     }
 	
 	@PostMapping("/coches/save")
-    public String guardar(Coches coche) {
+    public String guardarCoche(Coches coche) {
         coServ.save(coche);
         System.out.println(coche);
         return "redirect:/admin/coches";

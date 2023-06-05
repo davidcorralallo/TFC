@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import david.corral.tfc.entity.Coches;
@@ -14,7 +16,15 @@ public class CochesServiceImp implements ICochesService {
 
 	@Autowired
 	CochesRepository cRepo;
+	/*
+	public List<Coches> buscarTodos() {
+		return cRepo.findAll();
+	}*/
 	
+	public Page<Coches> buscarTodosPageable(Pageable pageable) {
+	    return cRepo.findAll(pageable);
+	}
+
 	public List<Coches> buscarTodos() {
 		return cRepo.findAll();
 	}

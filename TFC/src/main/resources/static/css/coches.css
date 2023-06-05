@@ -5,7 +5,7 @@ main {
     color: white;
     text-align: center;
     padding-top: 2.5%;
-    padding-bottom: 2.5%;
+    padding-bottom: 7.5%;
     
 }
 
@@ -14,7 +14,7 @@ article {
 	border-radius: 15px;
 	padding: 5%;
 	margin-top: 7.5%;
-	margin-bottom: 7.5%;
+	margin-bottom: 10.5%;
 }
 
 section {
@@ -65,5 +65,37 @@ a {
 }
 
 /* Estilos de los botones de Comentarios, Compra y Detalle */
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-list li {
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.numeros {
+    background-color: rgb(255, 0, 100);
+    color: white;
+    padding: 1vw;
+    padding-left: 1.25vw;
+    padding-right: 1.25vw;
+    border-radius: 1vw;
+    box-shadow: rgb(255, 0, 100) 0 10px 20px -10px;
+}
+
+
+
 
 
