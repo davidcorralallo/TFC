@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/coches.css">
     <link rel="stylesheet" href="/css/Header.css">
+    <link rel="stylesheet" href="/css/paginacion.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -50,7 +51,7 @@
 						<li class="page-item" th:classappend="${prev == 0 ? 'disabled': ''}">
 							<a class="page-link pag" th:href="@{|/coches/lista?page=${prev}|}">Anterior</a>
 						</li>
-						<li class="page-item" th:each="page : ${pages}" th:classappend="${current == page ? 'active': ''}">
+						<li class="page-item numeros" th:each="page : ${pages}" th:classappend="${current == page ? 'active': ''}">
 							<a class="page-link" th:href="@{|/coches/lista?page=${page}|}" th:text="${page}"></a>
 						</li>
 						<li class="page-item" th:classappend="${current == last ? 'disabled': ''}">

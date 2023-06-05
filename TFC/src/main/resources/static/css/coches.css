@@ -66,16 +66,5 @@ a {
 
 /* Estilos de los botones de Comentarios, Compra y Detalle */
 
-.pag {
-	background-color: rgb(255, 0, 100) !important;
-	color: white !important;
-	
-}
-
-.pagination * {
-    border-width: 0px !important;
-}
-
-
 
 

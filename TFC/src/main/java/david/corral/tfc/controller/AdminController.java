@@ -55,13 +55,29 @@ public class AdminController {
 	
 	
 	//	ADMIN - USUARIOS
-	@GetMapping("/usuarios")
-    public String mostrarUsuarios (Clientes c, Model model) {
-    	List <Clientes> lista = cServ.buscarTodos();
-    	model.addAttribute("c", lista);
-    	System.out.println(lista);
+	@GetMapping(value ="/usuarios")
+	public String findAllClientes(@RequestParam Map<String, Object> params, Model model) {
+		int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
+		
+		PageRequest pageRequest = PageRequest.of(page, 1);
+		
+		Page<Clientes> pageCliente = cServ.buscarTodosPageable(pageRequest);
+
+		
+		int totalPage = pageCliente.getTotalPages();
+		if(totalPage > 0) {
+			List<Integer> pages = IntStream.rangeClosed(1, totalPage).boxed().collect(Collectors.toList());
+			model.addAttribute("pages", pages);
+		}
+		
+		model.addAttribute("c", pageCliente.getContent());
+		model.addAttribute("current", page + 1);
+		model.addAttribute("next", page + 2);
+		model.addAttribute("prev", page);
+		model.addAttribute("last", totalPage);
+		System.out.println(pageCliente);
 		return "/admin/adminUsuarios";
-    }
+	}
 	
 	@GetMapping("/usuarios/edit/{id}")
     public String editUsuario (@PathVariable("id") int idCliente, Model model) {
@@ -75,7 +91,7 @@ public class AdminController {
 	public String findAllProductos(@RequestParam Map<String, Object> params, Model model) {
 		int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
 		
-		PageRequest pageRequest = PageRequest.of(page, 1);
+		PageRequest pageRequest = PageRequest.of(page, 10);
 		
 		Page<Productos> pageProducto = pServ.buscarTodosPageable(pageRequest);
 		
@@ -173,6 +189,8 @@ public class AdminController {
 		PageRequest pageRequest = PageRequest.of(page, 10);
 		
 		Page<Empleados> pageEmpleado = eServ.buscarTodosPageable(pageRequest);
+		List <Concesionario> listaConcesionarios = conServ.buscarTodos();
+
 		
 		int totalPage = pageEmpleado.getTotalPages();
 		if(totalPage > 0) {
@@ -180,6 +198,7 @@ public class AdminController {
 			model.addAttribute("pages", pages);
 		}
 		
+    	model.addAttribute("con", listaConcesionarios);
 		model.addAttribute("emp", pageEmpleado.getContent());
 		model.addAttribute("current", page + 1);
 		model.addAttribute("next", page + 2);

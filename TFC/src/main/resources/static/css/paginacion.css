@@ -1,0 +1,30 @@
+@charset "ISO-8859-1";
+
+
+.pagination * {
+    border-width: 0px !important;
+}
+
+.page-item.active .page-link {
+    z-index: 0;
+    color: black !important;
+    background-color: white !important;
+    border-color: rgb(255, 0, 100) !important;
+    border-width: 2px !Important;
+}
+
+.page-item .page-link {
+    z-index: 1;
+	background-color: rgb(255, 0, 100) !important;
+	color: white !important;
+}
+
+.pagination li {
+	padding: 5%;
+	border-radius: 1vw;
+}
+
+.numeros a{
+	border-radius: 1vw !important;
+}
+
