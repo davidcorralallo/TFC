@@ -1,6 +1,11 @@
 package david.corral.tfc.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import david.corral.tfc.entity.Coches;
 import david.corral.tfc.entity.Productos;
+import david.corral.tfc.repository.CochesRepository;
 import david.corral.tfc.service.CochesServiceImp;
 
 @Controller
@@ -24,6 +30,10 @@ public class CochesController {
 
 	@Autowired
 	CochesServiceImp cServ;
+	
+	@Autowired
+	CochesRepository cRepo;
+	
 	/*
 	@GetMapping("/lista")
     public String mostrarLista (Coches c, Model model) {
@@ -32,7 +42,7 @@ public class CochesController {
     	System.out.println(lista);
 		return "/coches/lista";
     }*/
-	
+	/*
 	@GetMapping("/lista")
 	public String mostrarLista(@RequestParam(defaultValue = "0") int page, Model model) {
 	    int pageSize = 1; // Número de elementos por página
@@ -48,7 +58,32 @@ public class CochesController {
 	    model.addAttribute("currentPage", page);
 
 	    return "/coches/lista";
+	}*/
+	
+	@GetMapping(value ="/lista")
+	public String findAll(@RequestParam Map<String, Object> params, Model model) {
+		int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
+		
+		PageRequest pageRequest = PageRequest.of(page, 1);
+		
+		Page< Coches> pageCoche = cServ.buscarTodosPageable(pageRequest);
+		
+		int totalPage = pageCoche.getTotalPages();
+		if(totalPage > 0) {
+			List<Integer> pages = IntStream.rangeClosed(1, totalPage).boxed().collect(Collectors.toList());
+			model.addAttribute("pages", pages);
+		}
+		
+		model.addAttribute("c", pageCoche.getContent());
+		model.addAttribute("current", page + 1);
+		model.addAttribute("next", page + 2);
+		model.addAttribute("prev", page);
+		model.addAttribute("last", totalPage);
+		System.out.println(pageCoche);
+		return "/coches/lista";
 	}
+	
+	
 
 	
 	@GetMapping("/detalle/{id}")

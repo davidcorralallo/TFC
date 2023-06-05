@@ -4,13 +4,16 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import david.corral.tfc.entity.Coches;
 import david.corral.tfc.entity.Productos;
 import david.corral.tfc.repository.ProductosRepository;
 
 @Service
-public class ProductosServiceImp implements ICochesService {
+public class ProductosServiceImp implements IProductosService {
 
 	@Autowired
 	ProductosRepository pRepo;
@@ -37,5 +40,6 @@ public class ProductosServiceImp implements ICochesService {
 	public void save(Productos producto) {
 		pRepo.save(producto);
 	}
+
 
 }

@@ -44,13 +44,25 @@
         		</div>
         	</article>
         	
-    		<div class="pagination">
-    		    <ul class="pagination-list">
-    		        <li th:each="pageNum : ${#numbers.sequence(0, totalPages-1)}" th:class="${page == pageNum ? 'active' : ''}">
-    		            <a class="numeros" th:href="@{/coches(page=${pageNum})}" th:text="${pageNum + 1}"></a>
-    		        </li>
-    		    </ul>
-    		</div>
+   <div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<nav aria-label="Pagination">
+						<ul class="pagination justify-content-center">
+							<li class="page-item" th:classappend="${prev == 0 ? 'disabled': ''}">
+								<a class="page-link" th:href="@{|/coches/lista?page=${prev}|}">Anterior</a>
+							</li>
+							<li class="page-item" th:each="page : ${pages}" th:classappend="${current == page ? 'active': ''}">
+								<a class="page-link" th:href="@{|/coches/lista?page=${page}|}" th:text="${page}"></a>
+							</li>
+							<li class="page-item" th:classappend="${current == last ? 'disabled': ''}">
+								<a class="page-link" th:href="@{|/coches/lista?page=${next}|}">Siguiente</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
 
         </section> 
     </main>

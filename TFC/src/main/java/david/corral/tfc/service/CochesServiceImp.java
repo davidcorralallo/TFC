@@ -16,18 +16,15 @@ public class CochesServiceImp implements ICochesService {
 
 	@Autowired
 	CochesRepository cRepo;
-	/*
+	
 	public List<Coches> buscarTodos() {
 		return cRepo.findAll();
-	}*/
+	}
 	
 	public Page<Coches> buscarTodosPageable(Pageable pageable) {
 	    return cRepo.findAll(pageable);
 	}
-
-	public List<Coches> buscarTodos() {
-		return cRepo.findAll();
-	}
+	
 
 	public void eliminarCoche(int idCoche) {
 		cRepo.deleteById(idCoche);
@@ -48,5 +45,7 @@ public class CochesServiceImp implements ICochesService {
         System.out.println(coche);
 		cRepo.save(coche);
 	}
+
+	
 
 }
