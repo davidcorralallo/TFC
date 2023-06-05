@@ -1,6 +1,9 @@
 package david.corral.tfc.controller;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -68,13 +71,28 @@ public class AdminController {
     }
 	
 	//	ADMIN - PRODUCTOS
-	@GetMapping("/productos")
-    public String mostrarProductos (Productos p, Model model) {
-    	List <Productos> lista = pServ.buscarTodos();
-    	model.addAttribute("p", lista);
-    	System.out.println(lista);
+	@GetMapping(value ="/productos")
+	public String findAllProductos(@RequestParam Map<String, Object> params, Model model) {
+		int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
+		
+		PageRequest pageRequest = PageRequest.of(page, 1);
+		
+		Page<Productos> pageProducto = pServ.buscarTodosPageable(pageRequest);
+		
+		int totalPage = pageProducto.getTotalPages();
+		if(totalPage > 0) {
+			List<Integer> pages = IntStream.rangeClosed(1, totalPage).boxed().collect(Collectors.toList());
+			model.addAttribute("pages", pages);
+		}
+		
+		model.addAttribute("p", pageProducto.getContent());
+		model.addAttribute("current", page + 1);
+		model.addAttribute("next", page + 2);
+		model.addAttribute("prev", page);
+		model.addAttribute("last", totalPage);
+		System.out.println(pageProducto);
 		return "/admin/adminProductos";
-    }
+	}
 	
 	@GetMapping("/productos/edit/{id}")
     public String editProducto (@PathVariable("id") int idProducto, Model model) {
@@ -98,13 +116,28 @@ public class AdminController {
     }
 	//	ADMIN - COCHES
 	
-	@GetMapping("/coches")
-    public String mostrarCoches (Coches c, Model model) {
-		List <Coches> lista = coServ.buscarTodos();
-    	model.addAttribute("c", lista);
-    	System.out.println(lista);
+	@GetMapping(value ="/coches")
+	public String findAllCoches (@RequestParam Map<String, Object> params, Model model) {
+		int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
+		
+		PageRequest pageRequest = PageRequest.of(page, 10);
+		
+		Page<Coches> pageCoche = coServ.buscarTodosPageable(pageRequest);
+		
+		int totalPage = pageCoche.getTotalPages();
+		if(totalPage > 0) {
+			List<Integer> pages = IntStream.rangeClosed(1, totalPage).boxed().collect(Collectors.toList());
+			model.addAttribute("pages", pages);
+		}
+		
+		model.addAttribute("c", pageCoche.getContent());
+		model.addAttribute("current", page + 1);
+		model.addAttribute("next", page + 2);
+		model.addAttribute("prev", page);
+		model.addAttribute("last", totalPage);
+		System.out.println(pageCoche);
 		return "/admin/adminCoches";
-    }
+	}
 	
 	@GetMapping("/coches/edit/{id}")
     public String editCoche (@PathVariable("id") int idCoche, Model model) {
@@ -133,14 +166,28 @@ public class AdminController {
     }
 	
 //	ADMIN - EMPLEADOS
-	@GetMapping("/empleados")
-    public String mostrarEmpelados (Model model) {
-		List <Empleados> listaEmpleados = eServ.buscarTodos();
-		List <Concesionario> listaConcesionarios = conServ.buscarTodos();
-    	model.addAttribute("emp", listaEmpleados);
-    	model.addAttribute("con", listaConcesionarios);
+	@GetMapping(value ="/empleados")
+	public String findAllEmpleados(@RequestParam Map<String, Object> params, Model model) {
+		int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
+		
+		PageRequest pageRequest = PageRequest.of(page, 10);
+		
+		Page<Empleados> pageEmpleado = eServ.buscarTodosPageable(pageRequest);
+		
+		int totalPage = pageEmpleado.getTotalPages();
+		if(totalPage > 0) {
+			List<Integer> pages = IntStream.rangeClosed(1, totalPage).boxed().collect(Collectors.toList());
+			model.addAttribute("pages", pages);
+		}
+		
+		model.addAttribute("emp", pageEmpleado.getContent());
+		model.addAttribute("current", page + 1);
+		model.addAttribute("next", page + 2);
+		model.addAttribute("prev", page);
+		model.addAttribute("last", totalPage);
+		System.out.println(pageEmpleado);
 		return "/admin/adminEmpleados";
-    }
+	}
 	
 	@GetMapping("/empleados/edit/{id}")
     public String editEmpleado (@PathVariable("id") int idEmpleado, Model model) {

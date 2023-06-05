@@ -66,35 +66,15 @@ a {
 
 /* Estilos de los botones de Comentarios, Compra y Detalle */
 
-
-.pagination {
-    display: flex;
-    justify-content: center;
+.pag {
+	background-color: rgb(255, 0, 100) !important;
+	color: white !important;
+	
 }
 
-.pagination-list {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.pagination * {
+    border-width: 0px !important;
 }
-
-.pagination-list li {
-    margin-right: 10%;
-    margin-left: 10%;
-}
-
-.numeros {
-    background-color: rgb(255, 0, 100);
-    color: white;
-    padding: 1vw;
-    padding-left: 1.25vw;
-    padding-right: 1.25vw;
-    border-radius: 1vw;
-    box-shadow: rgb(255, 0, 100) 0 10px 20px -10px;
-}
-
 
 
 

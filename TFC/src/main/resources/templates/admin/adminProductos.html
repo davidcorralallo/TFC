@@ -49,6 +49,21 @@
                             </tr> 
                         </tbody>
                     </table>
+                    <div class="row justify-content-center paginacion">
+						<nav aria-label="Pagination">
+							<ul class="pagination justify-content-center">
+								<li class="page-item" th:classappend="${prev == 0 ? 'disabled': ''}">
+									<a class="page-link pag" th:href="@{|/admin/productos?page=${prev}|}">Anterior</a>
+								</li>
+								<li class="page-item" th:each="page : ${pages}" th:classappend="${current == page ? 'active': ''}">
+									<a class="page-link" th:href="@{|/admin/productos?page=${page}|}" th:text="${page}"></a>
+								</li>
+								<li class="page-item" th:classappend="${current == last ? 'disabled': ''}">
+									<a class="page-link pag" th:href="@{|/admin/productos?page=${next}|}">Siguiente</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
                 </div>
             </section>
     </main>

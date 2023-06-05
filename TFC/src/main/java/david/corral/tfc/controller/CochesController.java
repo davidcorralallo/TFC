@@ -64,7 +64,7 @@ public class CochesController {
 	public String findAll(@RequestParam Map<String, Object> params, Model model) {
 		int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
 		
-		PageRequest pageRequest = PageRequest.of(page, 1);
+		PageRequest pageRequest = PageRequest.of(page, 3);
 		
 		Page< Coches> pageCoche = cServ.buscarTodosPageable(pageRequest);
 		
