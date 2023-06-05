@@ -8,7 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import david.corral.tfc.entity.Coches;
 import david.corral.tfc.entity.Productos;
 import david.corral.tfc.repository.ProductosRepository;
 
@@ -41,5 +40,7 @@ public class ProductosServiceImp implements IProductosService {
 		pRepo.save(producto);
 	}
 
-
+	public Page<Productos> buscarTodosPageable(Pageable pageable) {
+	    return pRepo.findAll(pageable);
+	}
 }

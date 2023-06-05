@@ -55,10 +55,6 @@ public class HomeController {
     	return "/contacto";
     }
 	
-	@GetMapping("/productos")
-    public String mostrarProductos() {
-    	return "/productos";
-    }
 	
 	@PostMapping("/saveuser")
     public String guardarRegistro(Clientes cliente, RedirectAttributes attributes) {

@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/c777ed83a5.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/coches.css">
+    <link rel="stylesheet" href="/css/productos.css">
     <link rel="stylesheet" href="/css/Header.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <title>Coruña Automoción | Nuestros Coches</title>
+    <title>Coruña Automoción | Nuestros productos</title>
 </head>
 <body>
 	<!-- |header| 				   	 			  |header|	  -->
@@ -20,26 +20,25 @@
     <!-- ====================================================== -->
     <main>
         <section class="col">
-        	<article class="col" th:each="c: ${c}">
+        	<article class="col" th:each="p: ${p}">
         		<div class="row">
         			<div class="col-6">
-        				<img th:src="${c.img}" class="imgCoche">
+        				<img th:src="${p.img}" class="imgProducto">
         			</div>
 					
         			<div class="col-6 text-center">
         				<div class="row prestaciones">
-        					<div class="col-6" th:text="${c.marca}"></div>
-        					<div class="col-6" th:text="${c.modelo}"></div>
+        					<div class="col-6" th:text="${p.nombre}"></div>
+        					<div class="col-6" th:text="${p.marca}"></div>
         				</div>
         				<div class="row prestaciones">
-        					<div class="col-6" th:text="${#numbers.formatDecimal(c.precio, 0, 'POINT', 0, 'COMMA')} + ' €'"></div>
-        					<div class="col-6" th:text="${c.plazas} + ' Plazas'"></div>
+        					<div class="col-6" th:text="${#numbers.formatDecimal(p.precio, 0, 'POINT', 0, 'COMMA')} + ' €'"></div>
+        					<div class="col-6" th:text="${p.info}"></div>
         				</div>
         			</div>
         		</div>
-        		<div class="row botones">
-        			<div class="col-4"><a th:href="@{/coches/comentarios}"><button class="boton2">Comentarios</button></a></div>
-        			<div class="col-4"><a th:href="@{/coches/detalle/{id} (id=${c.id})}"><button class="boton2">Detalle</button></a></div>
+        		<div class="row botones d-flex justify-content-center align-content-center">
+        			<div class="col-4"><a th:href="@{/productos/comentarios}"><button class="boton2">Comentarios</button></a></div>
         			<div class="col-4"><a><button class="boton2">Comprar</button></a></div>
         		</div>
         	</article>
@@ -48,13 +47,13 @@
 				<nav aria-label="Pagination">
 					<ul class="pagination justify-content-center">
 						<li class="page-item" th:classappend="${prev == 0 ? 'disabled': ''}">
-							<a class="page-link pag" th:href="@{|/coches/lista?page=${prev}|}">Anterior</a>
+							<a class="page-link pag" th:href="@{|/productos/lista?page=${prev}|}">Anterior</a>
 						</li>
 						<li class="page-item" th:each="page : ${pages}" th:classappend="${current == page ? 'active': ''}">
-							<a class="page-link" th:href="@{|/coches/lista?page=${page}|}" th:text="${page}"></a>
+							<a class="page-link" th:href="@{|/productos/lista?page=${page}|}" th:text="${page}"></a>
 						</li>
 						<li class="page-item" th:classappend="${current == last ? 'disabled': ''}">
-							<a class="page-link pag" th:href="@{|/coches/lista?page=${next}|}">Siguiente</a>
+							<a class="page-link pag" th:href="@{|/productos/lista?page=${next}|}">Siguiente</a>
 						</li>
 					</ul>
 				</nav>
