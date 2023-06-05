@@ -159,6 +159,6 @@ public class AdminController {
     public String guardar(Empleados empleado) {
         eServ.save(empleado);
         System.out.println(empleado);
-        return "redirect:/admin/coches";
+        return "redirect:/admin/empleados";
     }
 }

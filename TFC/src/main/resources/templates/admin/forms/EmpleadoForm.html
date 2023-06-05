@@ -20,7 +20,7 @@
     <!-- ====================================================== -->
 	<main>
 	<section>
-		<form class="col" th:action="@{/admin/coches/save}" method="post" th:object="${e}">
+		<form class="col" th:action="@{/admin/empleados/save}" method="post" th:object="${e}">
 			<h1 class="col text-center">Editar Empleado</h1>
 			<input type="hidden" th:field="*{id}" name="id">
 			<div class="row">
@@ -60,12 +60,11 @@
 				</div>
 				<div class="col-6">
 					<label for="idConcesionario">Concesionario</label>
-                	<input th:each="con : ${con}" th:if="${con.id == emp.idConcesionario}" th:text="${con.nombre}"></input>
                 	<select id="idConcesionario" name="idConcesionario">
-    					<option th:each="e : ${e}"
-            				th:text="${e}"
-            				th:value="${e}"
-            				th:field="*{con.id}">
+    					<option th:each="co : ${con}"
+            				th:text="${co.nombre}"
+            				th:value="${co.id}"
+            				th:field="*{id}">
             			</option>
 					</select>
 				</div>
