@@ -59,7 +59,7 @@ public class AdminController {
 	public String findAllClientes(@RequestParam Map<String, Object> params, Model model) {
 		int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
 		
-		PageRequest pageRequest = PageRequest.of(page, 1);
+		PageRequest pageRequest = PageRequest.of(page, 10);
 		
 		Page<Clientes> pageCliente = cServ.buscarTodosPageable(pageRequest);
 
