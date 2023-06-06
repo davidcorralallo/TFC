@@ -39,6 +39,8 @@ public class Coches {
 	private Integer plazas;
 	private Double precio;
 	private String img;
+	private Integer destacado;
+	private String imgDestacado;
 	
 	
 	public Integer getId() {
@@ -128,12 +130,26 @@ public class Coches {
 	public void setConsumoAutopista(Double consumoAutopista) {
 		this.consumoAutopista = consumoAutopista;
 	}
+	
+	public Integer getDestacado() {
+		return destacado;
+	}
+	public void setDestacado(Integer destacado) {
+		this.destacado = destacado;
+	}
+	public String getImgDestacado() {
+		return imgDestacado;
+	}
+	public void setImgDestacado(String imgDestacado) {
+		this.imgDestacado = imgDestacado;
+	}
 	@Override
 	public String toString() {
 		return "Coches [id=" + id + ", marca=" + marca + ", modelo=" + modelo + ", potencia=" + potencia + ", motor="
 				+ motor + ", propulsion=" + propulsion + ", cambio=" + cambio + ", traccion=" + traccion
 				+ ", combustible=" + combustible + ", consumoCiudad=" + consumoCiudad + ", consumoAutopista="
-				+ consumoAutopista + ", plazas=" + plazas + ", precio=" + precio + ", img=" + img + "]";
+				+ consumoAutopista + ", plazas=" + plazas + ", precio=" + precio + ", img=" + img + ", destacado="
+				+ destacado + ", imgDestacado=" + imgDestacado + "]";
 	}
 	
 	

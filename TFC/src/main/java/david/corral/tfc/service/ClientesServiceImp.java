@@ -8,7 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import david.corral.tfc.entity.Clientes;
-import david.corral.tfc.entity.Productos;
 import david.corral.tfc.repository.ClientesRepository;
 
 @Service

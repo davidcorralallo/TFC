@@ -39,22 +39,17 @@ section{
 }
 
 /*Hasta aqui el inicio */
-/*Ahora marcas*/
 
-.marcas h2 {
-    padding-top: 5%;
-    font-size: 2.75vw;
+
+.marcaModelo {
+	height: 5vw !important;
+	margin-top: 2.5vw;
+	width: 80%;
+	display: flex;
+	justify-self: center;
+	align-self: center;
 }
 
-.marcasimg {
-    background-image: url('/img/home/marcas.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 50vw;
-}
-
-/*Hasta aqui marcas */
 /*Ahora servicios*/
 .tasacion {
     display: flex;

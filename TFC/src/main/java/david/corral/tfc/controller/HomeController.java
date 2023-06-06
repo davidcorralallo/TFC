@@ -3,10 +3,12 @@ package david.corral.tfc.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -18,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import david.corral.tfc.entity.Clientes;
+import david.corral.tfc.entity.Coches;
 import david.corral.tfc.entity.Perfiles;
+import david.corral.tfc.service.CochesServiceImp;
 import david.corral.tfc.service.IClientesService;
 
 @Controller
@@ -28,10 +32,20 @@ public class HomeController {
 	IClientesService ServClientes;
 	
 	@Autowired
+	CochesServiceImp cServ;
+	
+	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
 	@GetMapping("/")
-    public String mostrarHome(Authentication auth) {
+    public String mostrarHome(Authentication auth, Model model) {
+		List <Coches> lista = cServ.buscarTodos();
+		
+		List<Coches> cochesDestacados = lista.stream()
+	            .filter(coche -> coche.getDestacado() == 1)
+	            .collect(Collectors.toList());
+		
+		model.addAttribute("c", cochesDestacados);
     	return "/Home";
     }
 	
