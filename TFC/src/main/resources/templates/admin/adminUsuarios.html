@@ -22,7 +22,7 @@
     <main>
         <section class="row">
                 <!-- |AdminNav| 				 |AdminNav|  -->
-    			<ul class="col-2 d-flex" th:insert="fragments/adminNav"></ul>
+    			<ul class="col-2 d-flex adminNav" th:insert="fragments/adminNav"></ul>
     			<!-- ======================================= -->
                 <div class="col-10">
                     <h1 class="text-center">USUARIOS</h1>
@@ -44,10 +44,15 @@
                                 <td th:text="${u.apellido}"></td>
                                 <td th:text="${u.email}"></td>
                                 <td th:text="${u.usuario}"></td>
-                                <td>
-                        			<span th:if="${u.estatus == 0}">Inactivo</span>
-                        			<span th:if="${u.estatus == 1}">Activo</span>
-                    			</td>
+                                 <td>
+        						    <span th:if="${u.estatus == 0}">Inactivo</span>
+        						    <span th:if="${u.estatus == 1}">Activo</span>
+        						</td>
+        						<td>
+        						    <form th:action="@{/admin/usuarios/cambiar-estatus/{id}(id=${u.id})}" method="get">
+        						        <button type="submit" class="boton0">Cambiar Estatus</button>
+        						    </form>
+        						</td>
                             </tr> 
                         </tbody>
                     </table>

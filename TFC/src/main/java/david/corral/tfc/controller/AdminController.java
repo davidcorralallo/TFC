@@ -109,6 +109,19 @@ public class AdminController {
 		return "/admin/adminProductos";
 	}
 	
+	@GetMapping("/usuarios/cambiar-estatus/{id}")
+	public String cambiarEstatusUsuario(@PathVariable("id") int idCliente) {
+	    Clientes cliente = cServ.findById(idCliente);
+	    if (cliente != null) {
+	        int nuevoEstatus = cliente.getEstatus() == 0 ? 1 : 0; // Cambiar el estatus
+	        cliente.setEstatus(nuevoEstatus);
+	        cServ.saveCliente(cliente);
+	    }
+	    return "redirect:/admin/usuarios";
+	}
+	
+//	ADMIN - PRODUCTOS
+	
 	@GetMapping("/productos/edit/{id}")
     public String editProducto (@PathVariable("id") int idProducto, Model model) {
     	Productos producto = pServ.findById(idProducto);
