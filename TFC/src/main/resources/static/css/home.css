@@ -191,5 +191,19 @@ h2{
 	color:rgb(255, 0, 100) !important;
 }
 
+.circulo {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+.rojo {
+    background-color: red;
+}
+
+.verde {
+    background-color: green;
+}
 
 
