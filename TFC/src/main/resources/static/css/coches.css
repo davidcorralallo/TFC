@@ -33,36 +33,7 @@ section {
 }
 
 
-.botones div{
-	display: flex;
-	justify-content: center;
-	align-content: center;
-}
 
-/* Posicionamiento de los contenedores principales + bordes */
-
-
-.boton2 {
-    background: rgb(255, 0, 100);
-    border-radius: 999px;
-    box-shadow: rgb(255, 0, 100) 0 10px 20px -10px;
-    color: #FFFFFF;
-    font-size: 1.5vw;
-    font-weight: 700;
-    line-height: 24px;
-    opacity: 1;
-    padding: 1vw 2vw;
-    border: 0;
-    margin-bottom:7.5%;
-    margin-top:10%;
-    display: flex;
-    justify-content: center;
-    margin: 2vw;
-}
-
-a {
-    text-decoration:none !important;
-}
 
 /* Estilos de los botones de Comentarios, Compra y Detalle */
 

@@ -68,20 +68,3 @@ input:focus {
     justify-content: center;
 }
 
-.btn2 {
-    background-color: rgb(255, 0, 100);
-    border-radius: 999px;
-    box-shadow: rgb(255, 0, 100) 0 10px 20px -10px;
-    color: #FFFFFF;
-    font-size: 1.5vw;
-    font-weight: 700;
-    line-height: 24px;
-    opacity: 1;
-    padding: 1vw 2vw;
-    border: 0;
-    margin-bottom:7.5%;
-    margin-top:10%;
-    display: flex;
-    justify-content: center;
-    margin: 2vw;
-}

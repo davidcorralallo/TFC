@@ -72,20 +72,6 @@ section{
     font-size: 1vw;
 }
 
-.boton0 {
-    background: rgb(255, 0, 100);
-    border-radius: 999px;
-    box-shadow: rgb(255, 0, 100) 0 10px 20px -10px;
-    color: #FFFFFF;
-    font-size: 1.5vw;
-    font-weight: 700;
-    line-height: 2vw;
-    opacity: 1;
-    padding: 1vw 2vw;
-    border: 0;
-    margin-bottom:7.5%;
-}
-
 .timg{
     background-image: url('/img/home/tasacion.jpg');
     background-repeat: no-repeat;
@@ -193,19 +179,6 @@ h2{
 	color:rgb(255, 0, 100) !important;
 }
 
-.circulo {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-}
 
-.rojo {
-    background-color: red;
-}
-
-.verde {
-    background-color: green;
-}
 
 

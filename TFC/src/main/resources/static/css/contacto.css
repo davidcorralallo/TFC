@@ -75,19 +75,7 @@ p {
 	
 }
 
-.boton {
-    background: rgb(255, 0, 100);
-    border-radius: 999px;
-    box-shadow: rgb(255, 0, 100) 0 10px 20px -10px;
-    color: #FFFFFF;
-    font-size: 1.5vw;
-    font-weight: 700;
-    line-height: 2vw;
-    opacity: 1;
-    padding: 1vw 2vw;
-    border: 0;
-    margin-bottom:7.5%;
-}
+
 
 /* Estilo del botón de envio */
 
