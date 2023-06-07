@@ -45,6 +45,7 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
                                                                                 "/saveuser",
                                                                                 "/encriptar/**",
                                                                                 "/juego/lista").permitAll().antMatchers("/coches/**").hasAnyAuthority("ADMIN", "USUARIO")
+        																						.antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                                                                                                                 .anyRequest().authenticated().and().formLogin().loginPage("/login").failureUrl("/login?error=true").permitAll();		
         }
     
