@@ -25,7 +25,10 @@
     			<ul class="col-2 d-flex adminNav" th:insert="fragments/adminNav"></ul>
     			<!-- ======================================= -->
                 <div class="col-10">
-                    <h1 class="text-center">PRODUCTOS</h1>
+                    <div class="row">
+                		<a class="col-2" th:href="@{/admin/productos/añadir}"><button class="boton0">Añadir nuevo</button></a>
+                		<h1 class="col-8 text-center">PRODUCTOS</h1>
+                	</div>
                     <table>
                         <thead>
                             <tr>

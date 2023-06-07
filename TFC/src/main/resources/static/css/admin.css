@@ -101,6 +101,7 @@ tbody tr:hover {
 
 .paginacion {
 	padding-top: 5%;
+	width: 100%;
 }
 
 
@@ -120,6 +121,7 @@ tbody tr:hover {
     display: flex;
     justify-content: center;
     margin-left: 0.5vw;
+    height: 100%;
 }
 
 .boton0:hover {

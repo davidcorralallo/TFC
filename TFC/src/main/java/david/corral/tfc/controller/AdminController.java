@@ -85,6 +85,17 @@ public class AdminController {
 		return "/admin/usuraiosForm";
     }
 	
+	@GetMapping("/usuarios/cambiar-estatus/{id}")
+	public String cambiarEstatusUsuario(@PathVariable("id") int idCliente) {
+	    Clientes cliente = cServ.findById(idCliente);
+	    if (cliente != null) {
+	        int nuevoEstatus = cliente.getEstatus() == 0 ? 1 : 0; // Cambiar el estatus
+	        cliente.setEstatus(nuevoEstatus);
+	        cServ.saveCliente(cliente);
+	    }
+	    return "redirect:/admin/usuarios";
+	}
+	
 	//	ADMIN - PRODUCTOS
 	@GetMapping(value ="/productos")
 	public String findAllProductos(@RequestParam Map<String, Object> params, Model model) {
@@ -109,18 +120,12 @@ public class AdminController {
 		return "/admin/adminProductos";
 	}
 	
-	@GetMapping("/usuarios/cambiar-estatus/{id}")
-	public String cambiarEstatusUsuario(@PathVariable("id") int idCliente) {
-	    Clientes cliente = cServ.findById(idCliente);
-	    if (cliente != null) {
-	        int nuevoEstatus = cliente.getEstatus() == 0 ? 1 : 0; // Cambiar el estatus
-	        cliente.setEstatus(nuevoEstatus);
-	        cServ.saveCliente(cliente);
-	    }
-	    return "redirect:/admin/usuarios";
+	@GetMapping("/productos/añadir")
+	public String añadirProducto(Productos producto, Model model) {
+		model.addAttribute("p", producto);
+		return "/admin/forms/ProductosForm";
 	}
 	
-//	ADMIN - PRODUCTOS
 	
 	@GetMapping("/productos/edit/{id}")
     public String editProducto (@PathVariable("id") int idProducto, Model model) {
@@ -165,6 +170,17 @@ public class AdminController {
 		model.addAttribute("last", totalPage);
 		System.out.println(pageCoche);
 		return "/admin/adminCoches";
+	}
+	
+	@GetMapping("/coches/añadir")
+	public String añadirProducto(Coches coche, Model model) {
+		model.addAttribute("c", coche);
+		model.addAttribute("marca",Marcas.values());
+    	model.addAttribute("cambio",Cambio.values());
+    	model.addAttribute("combustible",Combustible.values());
+    	model.addAttribute("traccion",Traccion.values());
+    	model.addAttribute("propulsion",Propulsion.values());
+		return "/admin/forms/CochesForm";
 	}
 	
 	@GetMapping("/coches/edit/{id}")
@@ -243,4 +259,13 @@ public class AdminController {
         System.out.println(empleado);
         return "redirect:/admin/empleados";
     }
+	
+	@GetMapping("/empleados/añadir")
+	public String añadirEmpleado(Empleados empleado, Model model) {
+		List <Concesionario> listaConcesionarios = conServ.buscarTodos();
+		model.addAttribute("e", empleado);
+		model.addAttribute("puesto",Puesto.values());
+    	model.addAttribute("con", listaConcesionarios);
+		return "/admin/forms/EmpleadoForm";
+	}
 }
