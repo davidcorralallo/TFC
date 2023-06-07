@@ -149,4 +149,6 @@ tbody tr:hover {
 	text-align: center !important;
 }
 
-
+a {
+	text-decoration: none !Important;
+}

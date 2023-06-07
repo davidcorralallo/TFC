@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import david.corral.tfc.entity.Concesionario;
-
 import david.corral.tfc.repository.ConcesionarioRepository;
 
 @Service
@@ -14,9 +13,11 @@ public class ConcesionarioServiceImp implements IConcesionarioService {
 
 	@Autowired
 	ConcesionarioRepository conRepo;
-	
-	
+
+	@Override
 	public List<Concesionario> buscarTodos() {
 		return conRepo.findAll();
 	}
+	
+
 }

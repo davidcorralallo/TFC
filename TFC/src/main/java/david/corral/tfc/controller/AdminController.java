@@ -173,7 +173,7 @@ public class AdminController {
 	}
 	
 	@GetMapping("/coches/añadir")
-	public String añadirProducto(Coches coche, Model model) {
+	public String añadirCoche(Coches coche, Model model) {
 		model.addAttribute("c", coche);
 		model.addAttribute("marca",Marcas.values());
     	model.addAttribute("cambio",Cambio.values());
