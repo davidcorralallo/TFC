@@ -23,7 +23,7 @@ footer hr {
 
 footer h3 { font-size: 2vw;}
 
-.info span {
+.info a {
     font-size: 1.5vw;
     text-transform: capitalize;
     text-decoration: none;
@@ -31,9 +31,10 @@ footer h3 { font-size: 2vw;}
     display: block;
     transition: all 0.7s ease;
     padding-top: 2vw;
+    color: white;
 }
 
-.info span:hover{
+.info a:hover{
     margin-left: 20px;
     color:rgb(255, 0, 100);
     cursor: pointer;
@@ -43,25 +44,24 @@ footer h3 { font-size: 2vw;}
 	background-color: rgb(40, 36, 44, 0.2);
 }
 
-.rrss span{
+.rrss a{
     height: 3vw;
     width: 3vw;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.2) !important;
     text-align: center;
     border-radius: 50%;
     margin-top: 1.5vw;
     transition: all 0.5s ease;
     padding-top: 0.7vw;
+    color: white;
 }
 
-.rrss span:hover {
+.rrss a:hover{
     padding-left: 0px;
-    color:rgb(255, 0, 100);
-    background-color: white;
+    color:rgb(255, 0, 100) !important;
+    background-color: white  !important;
     cursor: pointer;
 }
-
-
 
 .row {
     --bs-gutter-x: 0rem;
