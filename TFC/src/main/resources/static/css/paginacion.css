@@ -3,6 +3,7 @@
 
 .pagination * {
     border-width: 0px !important;
+    width: 100% !important;
 }
 
 .page-item.active .page-link {
@@ -26,5 +27,6 @@
 
 .numeros a{
 	border-radius: 1vw !important;
+	width: 100% !important;
 }
 

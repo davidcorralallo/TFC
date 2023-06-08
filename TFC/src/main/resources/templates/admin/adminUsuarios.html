@@ -58,16 +58,16 @@
                         </tbody>
                     </table>
                     <div class="row justify-content-center paginacion">
-						<nav aria-label="Pagination">
-							<ul class="pagination justify-content-center">
-								<li class="page-item" th:classappend="${prev == 0 ? 'disabled': ''}">
-									<a class="page-link" th:href="@{|/admin/usuarios?page=${prev}|}">Anterior</a>
+						<nav aria-label="Pagination col">
+							<ul class="pagination justify-content-center col">
+								<li class="page-item col" th:classappend="${prev == 0 ? 'disabled': ''}">
+									<a class="page-link col" th:href="@{|/admin/usuarios?page=${prev}|}">Anterior</a>
 								</li>
-								<li class="page-item numeros" th:each="page : ${pages}" th:classappend="${current == page ? 'active': ''}">
-									<a class="page-link" th:href="@{|/admin/usuarios?page=${page}|}" th:text="${page}"></a>
+								<li class="page-item numeros col" th:each="page : ${pages}" th:classappend="${current == page ? 'active': ''}">
+									<a class="page-link col" th:href="@{|/admin/usuarios?page=${page}|}" th:text="${page}"></a>
 								</li>
-								<li class="page-item" th:classappend="${current == last ? 'disabled': ''}">
-									<a class="page-link" th:href="@{|/admin/usuarios?page=${next}|}">Siguiente</a>
+								<li class="page-item col" th:classappend="${current == last ? 'disabled': ''}">
+									<a class="page-link col" th:href="@{|/admin/usuarios?page=${next}|}">Siguiente</a>
 								</li>
 							</ul>
 						</nav>
