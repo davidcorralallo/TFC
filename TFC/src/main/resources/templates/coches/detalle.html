@@ -20,10 +20,10 @@
 	<!-- |header| 				   	 			  |header|	  -->
     <header th:insert="fragments/header"></header>
     <!-- ====================================================== -->
-    <main class="col">
-    	<section th:object="${c}">
-    	<article class="row">
-    	<input type="hidden" th:field="${id}" name="id">
+    <main >
+    	<section th:object="${c}" class="row">
+    	<article>
+    		<input type="hidden" th:field="${id}" name="id">
         	<div class="col">
         		<div class="row top">
         			<img th:src="${c.img}" class="imgDetalle">
@@ -109,14 +109,15 @@
         		<div class="compra"><a><button class="boton2">Comprar</button></a></div>
         	</div>
         	</article>
-        	<article class="row">
+        	<article class="comentarios">
         		<div class="row">
         		    <div class="col">
         		        <h3>Comentarios</h3>
         		        <div class="comentarios-list">
         		            <div class="comentario" th:each="comentario : ${c.comentarios}">
-        		                <p class="autor" th:text="${comentario.autor}"></p>
+        		                <p class="autor" th:text="'Autor: ' + ${comentario.autor}"></p>
         		                <p class="texto" th:text="${comentario.comentario}"></p>
+        		                <hr class="separacion">
         		            </div>
         		        </div>
         		    </div>
