@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -38,7 +37,7 @@ public class HomeController {
 	private PasswordEncoder passwordEncoder;
 	
 	@GetMapping("/")
-    public String mostrarHome(Authentication auth, Model model) {
+	public String mostrarHome(Authentication auth, Model model) {
 		List <Coches> lista = cServ.buscarTodos();
 		
 		List<Coches> cochesDestacados = lista.stream()

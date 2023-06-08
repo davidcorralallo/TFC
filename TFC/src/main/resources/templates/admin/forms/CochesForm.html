@@ -127,8 +127,19 @@
                 	<input type="text" class="form-control" id="img" name="img" th:field = *{img} placeholder="URL Imagen" required="required">
 				</div>
 			</div>
+			
+			<div class="row inputs mb-5">
+				<div class="col-6">
+					<label for="destacado">Destacado</label>
+                	<input type="number" class="form-control" id="destacado" name="destacado" th:field = *{destacado} placeholder="1= si, 0= no" required="required">
+				</div>
+				<div class="col-6">
+					<label for="imgDestacado">URL de la Imagen Destacado</label>
+                	<input type="text" class="form-control" id="imgDestacado" name="imgDestacado" th:field = *{imgDestacado} placeholder="URL Imagen (Sin fondo)" required="required">
+				</div>
+			</div>
 			<div class="centrado">
-				<button class="botonGeneral mb-5"><small>Guardar cambios</small></button>
+				<button class="botonGeneral mt-5 mb-5"><small>Guardar cambios</small></button>
 			</div>
 		</form>
 		</section>
