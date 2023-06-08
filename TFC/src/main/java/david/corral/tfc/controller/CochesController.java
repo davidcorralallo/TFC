@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import david.corral.tfc.entity.Coches;
+import david.corral.tfc.entity.Comentarios;
 import david.corral.tfc.repository.CochesRepository;
 import david.corral.tfc.service.CochesServiceImp;
+import david.corral.tfc.service.ComentariosServiceImp;
 
 @Controller
 @RequestMapping(value = "/coches")
@@ -30,6 +32,9 @@ public class CochesController {
 	@Autowired
 	CochesRepository cRepo;
 	
+	@Autowired
+	ComentariosServiceImp comentariosService;
+	
 
 	
 	@GetMapping(value ="/lista")
@@ -39,6 +44,7 @@ public class CochesController {
 		PageRequest pageRequest = PageRequest.of(page, 3);
 		
 		Page< Coches> pageCoche = cServ.buscarTodosPageable(pageRequest);
+
 		
 		int totalPage = pageCoche.getTotalPages();
 		if(totalPage > 0) {
@@ -55,15 +61,14 @@ public class CochesController {
 		return "/coches/lista";
 	}
 	
-	
-
-	
 	@GetMapping("/detalle/{id}")
-    public String mostarDetalle (@PathVariable("id") int idCoche, Model model) {
-    	Coches coche = cServ.findById(idCoche);
-    	model.addAttribute("c", coche);
-		return "/coches/detalle";
-    }
+	public String mostrarDetalle(@PathVariable("id") int idCoche, Model model, Comentarios comentario) {
+	    Coches coche = cServ.findById(idCoche);
+	    List<Comentarios> comentarios = comentariosService.obtenerComentariosPorCoche(coche);
+	    model.addAttribute("c", coche);
+	    model.addAttribute("comentarios", comentarios);
+	    return "/coches/detalle";
+	}
 	
 	
 	

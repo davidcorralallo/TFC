@@ -1,11 +1,14 @@
 package david.corral.tfc.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import david.corral.tfc.enums.Cambio;
@@ -42,6 +45,16 @@ public class Coches {
 	private Integer destacado;
 	private String imgDestacado;
 	
+	@OneToMany(mappedBy = "coche")
+	private List<Comentarios> comentarios;
+
+    public List<Comentarios> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentarios> comentarios) {
+        this.comentarios = comentarios;
+    }
 	
 	public Integer getId() {
 		return id;
