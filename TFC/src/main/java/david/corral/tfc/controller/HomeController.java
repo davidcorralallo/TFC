@@ -79,7 +79,7 @@ public class HomeController {
     	cliente.setFechaRegistro(new Date());
     	List<Perfiles> lista = new ArrayList<>() ;
     	Perfiles perfil = new Perfiles();
-    	perfil.setId(2); //Perfil de cliente
+    	perfil.setId(1); //Perfil de cliente
     	lista.add(perfil);
     	cliente.setPerfiles(lista);
     	System.out.println(cliente);
@@ -94,6 +94,7 @@ public class HomeController {
     public String logout(HttpServletRequest request) {
     	SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
     	logoutHandler.logout(request, null, null);
+    	CochesController.carrito.clear();
     	return "redirect:/login";
     }
     

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 08-06-2023 a las 20:32:03
+-- Tiempo de generación: 08-06-2023 a las 20:46:47
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `estatus` tinyint NOT NULL,
   `fechaRegistro` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `clientes`
@@ -73,7 +73,8 @@ INSERT INTO `clientes` (`id`, `nombre`, `apellido`, `email`, `usuario`, `passwor
 (30, 'Camila', 'Gomez', 'camila.gomez@gmail.com', 'camilagomez', 'p4ssw0rd', 1, '2022-12-01'),
 (31, 'Gabriel', 'Rodriguez', 'gabriel.rodriguez@gmail.com', 'gabrielrodriguez', 'qwerty123', 1, '2020-01-17'),
 (32, 'Valentina', 'Mendoza', 'valentina.mendoza@gmail.com', 'valentinamendoza', 'testpass', 1, '2016-06-20'),
-(33, 'Sebastian', 'Silva', 'sebastian.silva@gmail.com', 'sebastiansilva', 'pass987', 1, '2015-08-22');
+(33, 'Sebastian', 'Silva', 'sebastian.silva@gmail.com', 'sebastiansilva', 'pass987', 1, '2015-08-22'),
+(34, 'Pablo', 'Pablito', 'Pablito@gmail.com', 'Pablito123', '$2a$10$PTdpum.iAXsZmKNzURlnmOH6uBpymIHn5j1YjRKqZ9nrh/5Zxv62O', 1, '2023-06-08');
 
 -- --------------------------------------------------------
 
@@ -396,30 +397,6 @@ INSERT INTO `perfiles` (`id`, `perfil`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
---
-
-DROP TABLE IF EXISTS `productos`;
-CREATE TABLE IF NOT EXISTS `productos` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `marca` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `info` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `precio` int NOT NULL,
-  `img` varchar(155) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `productos`
---
-
-INSERT INTO `productos` (`id`, `nombre`, `marca`, `info`, `precio`, `img`) VALUES
-(1, 'Llanta de aluminio', 'BBS', 'Llanta de aluminio Bbs Super RS 8.5x19 5x112 ET43 borde pulido dorado', 1755, 'https://www.selcus.com/95-large_default/llanta-bbs-super-rs-gold.jpg');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `usuarioperfil`
 --
 
@@ -461,7 +438,8 @@ INSERT INTO `usuarioperfil` (`idUsuario`, `idPerfil`) VALUES
 (29, 1),
 (1, 2),
 (5, 2),
-(8, 2);
+(8, 2),
+(34, 2);
 
 -- --------------------------------------------------------
 
@@ -474,12 +452,10 @@ CREATE TABLE IF NOT EXISTS `ventas` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_cliente` int NOT NULL,
   `id_coche` int NOT NULL,
-  `id_producto` int NOT NULL,
   `fecha_venta` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_cliente` (`id_cliente`),
-  KEY `id_coche` (`id_coche`),
-  KEY `id_producto` (`id_producto`)
+  KEY `id_coche` (`id_coche`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -517,8 +493,7 @@ ALTER TABLE `usuarioperfil`
 --
 ALTER TABLE `ventas`
   ADD CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`),
-  ADD CONSTRAINT `ventas_ibfk_2` FOREIGN KEY (`id_coche`) REFERENCES `coches` (`id`),
-  ADD CONSTRAINT `ventas_ibfk_3` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `ventas_ibfk_2` FOREIGN KEY (`id_coche`) REFERENCES `coches` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

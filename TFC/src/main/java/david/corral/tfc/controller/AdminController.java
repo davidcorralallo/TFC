@@ -20,7 +20,6 @@ import david.corral.tfc.entity.Clientes;
 import david.corral.tfc.entity.Coches;
 import david.corral.tfc.entity.Concesionario;
 import david.corral.tfc.entity.Empleados;
-import david.corral.tfc.entity.Productos;
 import david.corral.tfc.enums.Cambio;
 import david.corral.tfc.enums.Combustible;
 import david.corral.tfc.enums.Marcas;
@@ -31,7 +30,6 @@ import david.corral.tfc.service.ClientesServiceImp;
 import david.corral.tfc.service.CochesServiceImp;
 import david.corral.tfc.service.ConcesionarioServiceImp;
 import david.corral.tfc.service.EmpleadoServiceImp;
-import david.corral.tfc.service.ProductosServiceImp;
 
 @Controller
 @RequestMapping(value = "/admin")
@@ -42,9 +40,6 @@ public class AdminController {
 	
 	@Autowired
 	CochesServiceImp coServ;
-	
-	@Autowired
-	ProductosServiceImp pServ;
 	
 	@Autowired
 	EmpleadoServiceImp eServ;
@@ -96,57 +91,7 @@ public class AdminController {
 	    return "redirect:/admin/usuarios";
 	}
 	
-	//	ADMIN - PRODUCTOS
-	@GetMapping(value ="/productos")
-	public String findAllProductos(@RequestParam Map<String, Object> params, Model model) {
-		int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString()) - 1) : 0;
-		
-		PageRequest pageRequest = PageRequest.of(page, 10);
-		
-		Page<Productos> pageProducto = pServ.buscarTodosPageable(pageRequest);
-		
-		int totalPage = pageProducto.getTotalPages();
-		if(totalPage > 0) {
-			List<Integer> pages = IntStream.rangeClosed(1, totalPage).boxed().collect(Collectors.toList());
-			model.addAttribute("pages", pages);
-		}
-		
-		model.addAttribute("p", pageProducto.getContent());
-		model.addAttribute("current", page + 1);
-		model.addAttribute("next", page + 2);
-		model.addAttribute("prev", page);
-		model.addAttribute("last", totalPage);
-		System.out.println(pageProducto);
-		return "/admin/adminProductos";
-	}
 	
-	@GetMapping("/productos/añadir")
-	public String añadirProducto(Productos producto, Model model) {
-		model.addAttribute("p", producto);
-		return "/admin/forms/ProductosForm";
-	}
-	
-	
-	@GetMapping("/productos/edit/{id}")
-    public String editProducto (@PathVariable("id") int idProducto, Model model) {
-    	Productos producto = pServ.findById(idProducto);
-    	model.addAttribute("p", producto);
-		return "/admin/forms/ProductosForm";
-    }
-	
-	@GetMapping("/productos/delete/{id}")
-    public String eliminarProductos(@PathVariable("id") int idProducto, Model model) {
-        System.out.println("Borrado del producto: " + idProducto);
-        pServ.eliminarProducto(idProducto);
-        return "redirect:/admin/productos";
-    }
-	
-	@PostMapping("/productos/save")
-    public String guardarProducto(Productos producto) {
-        pServ.save(producto);
-        System.out.println(producto);
-        return "redirect:/admin/productos";
-    }
 	//	ADMIN - COCHES
 	
 	@GetMapping(value ="/coches")

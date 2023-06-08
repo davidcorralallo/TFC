@@ -38,7 +38,7 @@ public class CochesController {
 	ComentariosServiceImp comentariosService;
 	
 	static Coches cochesDetalle = new Coches();
-	List <Item> carrito = new ArrayList <Item>();
+	static List <Item> carrito = new ArrayList <Item>();
 	
 	@GetMapping(value ="/lista")
 	public String findAll(@RequestParam Map<String, Object> params, Model model) {

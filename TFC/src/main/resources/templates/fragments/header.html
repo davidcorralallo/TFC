@@ -9,13 +9,7 @@
         </li>
             	
     	<li class="nav-item dropdown">
-    		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   				Tienda
-    		</a>
-    		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    			<a class="dropdown-item" th:href="@{/coches/lista}">Coches</a>
-    			<a class="dropdown-item" th:href="@{/productos/lista}">Productos</a>
-    		</div>
+    		<a th:href="@{/coches/lista}">Tienda</a>
 		</li>
     	<li><a th:href="@{/}"><img src="/img/header/dibujo.png" class="logo" alt="logo"></a></li>
     	<li><a th:href="@{/contacto}">Contacto</a></li>
@@ -28,8 +22,9 @@
     			<a class="dropdown-item" href="/singup">Registar</a>
     		</div>
 		</li>
-		<li sec:authorize="isAuthenticated()">
-			<a class="botonNav" th:href="@{/logout}">Salir</a>
+		<li sec:authorize="isAuthenticated()" class="row">
+			<a th:href="@{/coches/carrito}"><img src="/img/icons/carrito.png" class="logo col d-flex justify-self-center align-self-center" alt="logo"></a>
+			<a class="botonNav col" th:href="@{/logout}">Salir</a>
 		</li>
 	</ul>
 </nav>
