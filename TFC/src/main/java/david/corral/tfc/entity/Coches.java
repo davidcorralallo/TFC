@@ -2,6 +2,7 @@ package david.corral.tfc.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -45,7 +46,7 @@ public class Coches {
 	private Integer destacado;
 	private String imgDestacado;
 	
-	@OneToMany(mappedBy = "coche")
+	@OneToMany(mappedBy = "coche", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Comentarios> comentarios;
 
     public List<Comentarios> getComentarios() {
