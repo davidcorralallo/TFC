@@ -1,5 +1,6 @@
 package david.corral.tfc.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import david.corral.tfc.entity.Coches;
 import david.corral.tfc.entity.Comentarios;
+import david.corral.tfc.entity.Item;
 import david.corral.tfc.repository.CochesRepository;
 import david.corral.tfc.service.CochesServiceImp;
 import david.corral.tfc.service.ComentariosServiceImp;
@@ -35,7 +37,8 @@ public class CochesController {
 	@Autowired
 	ComentariosServiceImp comentariosService;
 	
-
+	static Coches cochesDetalle = new Coches();
+	List <Item> carrito = new ArrayList <Item>();
 	
 	@GetMapping(value ="/lista")
 	public String findAll(@RequestParam Map<String, Object> params, Model model) {
@@ -64,12 +67,41 @@ public class CochesController {
 	@GetMapping("/detalle/{id}")
 	public String mostrarDetalle(@PathVariable("id") int idCoche, Model model, Comentarios comentario) {
 	    Coches coche = cServ.findById(idCoche);
+	    cochesDetalle = coche;
 	    List<Comentarios> comentarios = comentariosService.obtenerComentariosPorCoche(coche);
 	    model.addAttribute("c", coche);
 	    model.addAttribute("comentarios", comentarios);
 	    return "/coches/detalle";
 	}
 	
+	@GetMapping("/comprar/{id}")
+	public String comprar(@PathVariable("id") int idCoche) {
+		Coches coche = cServ.findById(idCoche);
+			carrito.add(new Item(coche, 1));
+		return "redirect:/coches/carrito";
+	}
 	
+	@GetMapping("/carrito")
+	public String carrito(Model model) {
+		model.addAttribute("carrito", carrito);
+		int total = 0;
+		for (int i = 0; i < carrito.size(); i++) {
+			total += carrito.get(i).getCoche().getPrecio();
+		}
+		model.addAttribute("total",total);
+		return "/carrito";
+	}
+	
+	@GetMapping("/comprarCarrito")
+	public String comprarCarrito(Model model) {
+		carrito.clear();
+		model.addAttribute("carrito", carrito);
+		return "redirect:/coches/carrito";
+	}
 	
 }
+
+
+
+
+

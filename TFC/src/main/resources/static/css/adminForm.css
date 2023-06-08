@@ -65,3 +65,15 @@ select {
 	justify-content: center;
 	width: 100%;
 }
+
+.comentario input{
+	padding-top: 2wv;
+	padding-bottom: 2vw;
+	display: flex;
+	justify-content: center !important;
+}
+
+.comentario {
+	justify-content: center !important;
+	align-content: center !important;
+}

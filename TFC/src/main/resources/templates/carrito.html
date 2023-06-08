@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c777ed83a5.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/carrito.css">
+    <link rel="stylesheet" href="/css/botones.css">
+    <link rel="stylesheet" href="/css/Header.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Coruña Automoción | Carrito</title>
+</head>
+<body>
+	<!-- |header| 				   	 			  |header|	  -->
+    <header th:insert="fragments/header"></header>
+    <!-- ====================================================== -->
+    <main>
+        <table class="col">
+        	<thead class="row w-100 text-center pb-5">
+            	<tr class="row w-100">
+                	<th class="col-3">ID</th>
+                	<th class="col-3">Marca</th>
+                	<th class="col-3">Modelo</th>
+                	<th class="col-3">Precio</th>
+            	</tr>
+        	</thead>
+        	<tbody class="row w-100 text-center">
+        		<tr class="row w-100 pb-5" th:each="item: ${carrito}">
+            		<td class="col-3" th:text="${item.coche.id}"></td>
+            		<td class="col-3" th:text="${item.coche.marca}"></td>
+            		<td class="col-3" th:text="${item.coche.modelo}"></td>
+            		<td class="col-3" th:text="${#numbers.formatDecimal(item.coche.precio, 0, 'POINT', 0, 'COMMA')} + ' €'"></td> 
+            	</tr> 
+        	</tbody>
+    	</table>
+    	<div><h3 class="text-center pt-5" th:text=" 'Total: ' + ${#numbers.formatDecimal(total, 0, 'POINT', 0, 'COMMA')} + ' €'"></h3></div>
+    	<a th:href="@{/coches/comprarCarrito}"><button class="boton2">Comprar</button></a>
+    </main>
+    <!-- |footer| 				   	 	         |footer|	  -->
+    <footer class="row d-flex" th:insert="fragments/footer"></footer>
+    <!-- ====================================================== -->
+</body>
+</html>
