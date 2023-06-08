@@ -1,6 +1,7 @@
 package david.corral.tfc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,8 +34,9 @@ public class ComentariosController {
 	}
 	
 	@PostMapping("/save")
-    public String guardarProducto(Comentarios comentario, Model model) {
+    public String guardarProducto(Comentarios comentario, Model model, Authentication auth) {
         comentario.setCoche(CochesController.cochesDetalle);
+        comentario.setAutor(auth.getName());
         cServ.save(comentario);
         return "redirect:/coches/lista";
     }
