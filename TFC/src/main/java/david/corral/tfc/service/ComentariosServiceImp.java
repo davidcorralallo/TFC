@@ -20,4 +20,10 @@ public class ComentariosServiceImp implements IComentariosService {
 		return comentarios;
 	}
 
+
+	public void save(Comentarios comentario) {
+		comentariosRepository.save(comentario);
+		
+	}
+
 }

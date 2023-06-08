@@ -21,11 +21,7 @@ public class Comentarios {
 	@ManyToOne
     @JoinColumn(name = "idCoche")
     private Coches coche;
-
-	@ManyToOne
-    @JoinColumn(name = "idProducto")
-    private Productos producto;
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -58,18 +54,9 @@ public class Comentarios {
 		this.coche = coche;
 	}
 
-	public Productos getProducto() {
-		return producto;
-	}
-
-	public void setProducto(Productos producto) {
-		this.producto = producto;
-	}
-
 	@Override
 	public String toString() {
-		return "Comentarios [id=" + id + ", autor=" + autor + ", comentario=" + comentario + ", coche=" + coche
-				+ ", producto=" + producto + "]";
+		return "Comentarios [id=" + id + ", autor=" + autor + ", comentario=" + comentario + ", coche=" + coche + "]";
 	}
 	
 	
